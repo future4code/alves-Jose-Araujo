@@ -1,0 +1,13 @@
+Beatles:
+- Hey Jude
+- Twist And Shout
+- Yellow Submarine
+Led Zeppelin:
+- Communication Breakdown
+- Whole Lotta Love
+- Stairway to Heaven
+Pink Floyd:
+- Money
+- Shine On You Crazy Diamond
+- Wish You Were Here
+- Brain Damage
