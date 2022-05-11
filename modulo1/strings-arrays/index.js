@@ -64,9 +64,9 @@ console.log(minhasComidasFavoritas);
 
 // Exercicio: 3;
 let listaDeTarefas = [];
-listaDeTarefas[0] = prompt("Qual a sua primeira tarefa?");
-listaDeTarefas[1] = prompt("Qual a sua primeira tarefa?");
-listaDeTarefas[2] = prompt("Qual a sua primeira tarefa?");
+listaDeTarefas.push(prompt("Qual a sua primeira tarefa?"));
+listaDeTarefas.push(prompt("Qual a sua segundo tarefa?"));
+listaDeTarefas.push(prompt("Qual a sua terceira tarefa?"));
 
 console.log(listaDeTarefas);
 
@@ -75,6 +75,8 @@ const usuarioResponde = prompt(
 );
 
 listaDeTarefas.splice(usuarioResponde, 1);
+
+console.log(listaDeTarefas);
 
 // Desafios
 // Desafio 1:
