@@ -19,71 +19,71 @@ Resposta C) Deverá ocorrer o erro de declaração pois a variável mensagem é 
 // Exercícios de escrita de código
 
 // Exercício 1:
-// const idadeUsuario = Number(prompt("Qual é a sua idade?"));
+const idadeUsuario = Number(prompt("Qual é a sua idade?"));
 
-// if (idadeUsuario >= 18) {
-//   console.log("Você pode dirigir");
-// } else {
-//   console.log("Você não pode dirigir");
-// }
+if (idadeUsuario >= 18) {
+  console.log("Você pode dirigir");
+} else {
+  console.log("Você não pode dirigir");
+}
 
 // Exercício 2:
-// const turnoAluno = prompt(
-//   "Qual o seu turno? M (Matutino), V (Vespertino) ou N (Noturno)"
-// ).toUpperCase();
+const turnoAluno = prompt(
+  "Qual o seu turno? M (Matutino), V (Vespertino) ou N (Noturno)"
+).toUpperCase();
 
-// if (turnoAluno == "M") {
-//   console.log("Bom dia!!");
-// } else if (turnoAluno == "V") {
-//   console.log("Boa tarde!!");
-// } else if (turnoAluno == "N") {
-//   console.log("Boa noite!!");
-// } else {
-//   console.log(`Você colocou ${turnoAluno}, não aceitamos esse valor!`);
-// }
+if (turnoAluno == "M") {
+  console.log("Bom dia!!");
+} else if (turnoAluno == "V") {
+  console.log("Boa tarde!!");
+} else if (turnoAluno == "N") {
+  console.log("Boa noite!!");
+} else {
+  console.log(`Você colocou ${turnoAluno}, não aceitamos esse valor!`);
+}
 
 // Exercício 3:
-// let turnoUsuario = prompt(
-//   "Qual o seu turno? M (Matutino), V (Vespertino) ou N (Noturno)"
-// ).toUpperCase();
+let turnoUsuario = prompt(
+  "Qual o seu turno? M (Matutino), V (Vespertino) ou N (Noturno)"
+).toUpperCase();
 
-// switch (turnoUsuario) {
-//   case "M":
-//     console.log("Bom dia!!");
-//     break;
-//   case "V":
-//     console.log("Boa tarde!!");
-//     break;
-//   case "N":
-//     console.log("Boa noite!!");
-//     break;
-//   default:
-//     console.log(`Você colocou ${turnoUsuario}, não aceitamos esse valor!`);
-//     break;
-// }
+switch (turnoUsuario) {
+  case "M":
+    console.log("Bom dia!!");
+    break;
+  case "V":
+    console.log("Boa tarde!!");
+    break;
+  case "N":
+    console.log("Boa noite!!");
+    break;
+  default:
+    console.log(`Você colocou ${turnoUsuario}, não aceitamos esse valor!`);
+    break;
+}
 
 // Exercício 4:
-// const GeneroFilme = prompt("Qual o gênero do filme?").toLowerCase();
-// const PrecoIngresso = Number(prompt("Qual o valor do ingresso?"));
+const GeneroFilme = prompt("Qual o gênero do filme?").toLowerCase();
+const PrecoIngresso = Number(prompt("Qual o valor do ingresso?"));
 
-// if (GeneroFilme == "fantasia" && PrecoIngresso < 15) {
-//   console.log("Bom filme!");
-// } else {
-//   console.log("Escolha outro filme :(");
-// }
+if (GeneroFilme == "fantasia" && PrecoIngresso < 15) {
+  console.log("Bom filme!");
+} else {
+  console.log("Escolha outro filme :(");
+}
 
 // Desafios
 
 // Desafio: 1
-// const GeneroFilme = prompt("Qual o gênero do filme?").toLowerCase();
-// const PrecoIngresso = Number(prompt("Qual o valor do ingresso?"));
+const GeneroFilme2 = prompt("Qual o gênero do filme?").toLowerCase();
+const PrecoIngresso2 = Number(prompt("Qual o valor do ingresso?"));
 
-// if (GeneroFilme == "fantasia" && PrecoIngresso < 15) {
-//   const usuarioLanche = prompt("Qual lanche vai querer?");
-//   console.log(`Bom filme! e aproveite o seu ${usuarioLanche}`);
-// } else {
-//   console.log("Escolha outro filme :(");
-// }
+if (GeneroFilme2 == "fantasia" && PrecoIngresso2 < 15) {
+  const usuarioLanche = prompt("Qual lanche vai querer?");
+  console.log(`Bom filme! e aproveite o seu ${usuarioLanche}`);
+} else {
+  console.log("Escolha outro filme :(");
+}
 
 // Desafio: 2
 const nomeCompleto = prompt("Qual é o seu nome completo?");
