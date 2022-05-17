@@ -149,7 +149,7 @@ if (tipoJogo == "DO") {
   Valor total: R$ ${valorTotalIngresso}
   `);
 } else if (tipoJogo == "IN") {
-  const valorIngressoDolar = valorIngresso / 4.1;
+  const valorIngressoDolar = valorIngresso * 4.1;
   const valorTotalIngressoDolar = valorIngressoDolar * quantidadeIngresso;
   console.log(`
   ---Dados da compra--- 
