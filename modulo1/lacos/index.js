@@ -67,9 +67,9 @@ novoArrayPar(arrayOriginal);
 function novoArrayStrings(array) {
   let arrayStrings = [];
   for (let valor of array) {
-    arrayStrings.push(valor);
-    console.log(`O elemento do índex ${arrayStrings.length - 1} é: ${valor}`);
+    arrayStrings.push(`O elemento do índex ${arrayStrings.length} é: ${valor}`);
   }
+  console.log(arrayStrings);
 }
 
 novoArrayStrings(arrayOriginal);
