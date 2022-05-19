@@ -118,3 +118,21 @@ const ypeProduto = filtrarItemYpe.map((itemArray) => {
 });
 
 console.log(ypeProduto);
+
+// Desafios
+// Desafio: 1
+const pokemons = [
+  { nome: "Bulbasaur", tipo: "grama" },
+  { nome: "Bellsprout", tipo: "grama" },
+  { nome: "Charmander", tipo: "fogo" },
+  { nome: "Vulpix", tipo: "fogo" },
+  { nome: "Squirtle", tipo: "água" },
+  { nome: "Psyduck", tipo: "água" },
+];
+
+const ordemAlfabetica = pokemons.map((array) => {
+  const nomes = array.nome;
+  return nomes;
+});
+
+console.log(ordemAlfabetica.sort());
