@@ -108,13 +108,10 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
   let arrayDoisValores = array.sort((a, b) => a - b);
-  console.log(arrayDoisValores);
   let novoArray = [
     arrayDoisValores[arrayDoisValores.length - 2],
     arrayDoisValores[1],
   ];
-
-  console.log(novoArray);
 
   return novoArray;
 }
