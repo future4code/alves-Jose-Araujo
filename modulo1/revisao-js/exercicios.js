@@ -18,7 +18,15 @@ function retornaArrayOrdenado(array) {
 }
 
 // EXERCÍCIO 04
-function retornaNumerosPares(array) {}
+
+function retornaNumerosPares(array) {
+  let novoArray = [];
+
+  for (let i of array) {
+    if (i % 2 === 0) novoArray.push(i);
+  }
+  return novoArray;
+}
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {}
