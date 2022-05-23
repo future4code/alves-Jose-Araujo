@@ -80,10 +80,30 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 }
 
 // EXERCÍCIO 08
-function retornaNPrimeirosPares(n) {}
+function retornaNPrimeirosPares(n) {
+  let numerosPares = [];
+  let i = 0;
+  let numero = 0;
+
+  while (i < n) {
+    numerosPares.push(numero);
+    numero = numero + 2;
+    i++;
+  }
+
+  return numerosPares;
+}
 
 // EXERCÍCIO 09
-function classificaTriangulo(ladoA, ladoB, ladoC) {}
+function classificaTriangulo(ladoA, ladoB, ladoC) {
+  if (ladoA == ladoB && ladoB == ladoC) {
+    return `Equilátero`;
+  } else if (ladoA == ladoB || ladoA == ladoC || ladoB == ladoC) {
+    return `Isósceles`;
+  } else {
+    return `Escaleno`;
+  }
+}
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {}
