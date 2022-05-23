@@ -166,7 +166,7 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
     if (a.nome > b.nome) return 1;
     return 0;
   });
-  return resultado;
+  return agendaConsultas;
   // Consegui fazer após assistir um tutorial o youtube que ensinou a como ordenar da forma correta.
 }
 
