@@ -13,7 +13,9 @@ function retornaArrayInvertido(array) {
 }
 
 // EXERCÍCIO 03
-function retornaArrayOrdenado(array) {}
+function retornaArrayOrdenado(array) {
+  return array.sort((a, b) => a - b);
+}
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {}
