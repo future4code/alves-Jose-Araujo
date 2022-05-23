@@ -52,7 +52,7 @@ function retornaMaiorNumero(array) {
 function retornaObjetoEntreDoisNumeros(num1, num2) {
   let menorNumero = 0;
   let maiorNumero = 0;
-  let maiorDivisivelPorMenor = 0;
+  let maiorDivisivelPorMenor;
 
   if (num1 > num2) {
     maiorNumero = num1;
