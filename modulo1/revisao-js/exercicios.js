@@ -123,15 +123,27 @@ function retornaChamadaDeFilme(filme) {
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-  let novoObjeto = { ...pessoa, nome: "ANÔNIMO" };
-  return novoObjeto;
+  let novoObjetoPessoa = { ...pessoa, nome: "ANÔNIMO" };
+  return novoObjetoPessoa;
 }
 
 // EXERCÍCIO 13A
-function retornaPessoasAutorizadas(pessoas) {}
+function retornaPessoasAutorizadas(pessoas) {
+  const autorizaPessoas = pessoas.filter((pessoa, indice, lista) => {
+    return pessoa.altura > 1.5 && pessoa.idade > 14 && pessoa.idade < 60;
+  });
+
+  return autorizaPessoas;
+}
 
 // EXERCÍCIO 13B
-function retornaPessoasNaoAutorizadas(pessoas) {}
+function retornaPessoasNaoAutorizadas(pessoas) {
+  const autorizaPessoas = pessoas.filter((pessoa, indice, lista) => {
+    return pessoa.altura <= 1.5 || pessoa.idade <= 14 || pessoa.idade >= 60;
+  });
+
+  return autorizaPessoas;
+}
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {}
