@@ -18,7 +18,6 @@ function retornaArrayOrdenado(array) {
 }
 
 // EXERCÍCIO 04
-
 function retornaNumerosPares(array) {
   let novoArray = [];
 
@@ -38,7 +37,16 @@ function retornaNumerosParesElevadosADois(array) {
 }
 
 // EXERCÍCIO 06
-function retornaMaiorNumero(array) {}
+function retornaMaiorNumero(array) {
+  let maiorValor = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > maiorValor) {
+      maiorValor = array[i];
+    }
+  }
+  return maiorValor;
+}
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {}
