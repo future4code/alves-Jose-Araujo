@@ -146,10 +146,29 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 }
 
 // EXERCÍCIO 14
-function retornaContasComSaldoAtualizado(contas) {}
+function retornaContasComSaldoAtualizado(contas) {
+  let resultado = contas.map((conta) => {
+    let soma = conta.compras.reduce(
+      (itemAnt, itemAtual) => itemAnt + itemAtual,
+      0
+    );
+    let saldo = conta.saldoTotal;
+    return { ...conta, saldoTotal: saldo - soma, compras: [] };
+  });
+  return resultado;
+  // Só deu para fazer após a explicação no plantão de hoje.
+}
 
 // EXERCÍCIO 15A
-function retornaArrayOrdenadoAlfabeticamente(consultas) {}
+function retornaArrayOrdenadoAlfabeticamente(consultas) {
+  let agendaConsultas = consultas.sort((a, b) => {
+    if (a.nome < b.nome) return -1;
+    if (a.nome > b.nome) return 1;
+    return 0;
+  });
+  return resultado;
+  // Consegui fazer após assistir um tutorial o youtube que ensinou a como ordenar da forma correta.
+}
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {}
