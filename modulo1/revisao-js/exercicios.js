@@ -21,8 +21,8 @@ function retornaArrayOrdenado(array) {
 function retornaNumerosPares(array) {
   let novoArray = [];
 
-  for (let i of array) {
-    if (i % 2 === 0) novoArray.push(i);
+  for (let numeros of array) {
+    if (numeros % 2 === 0) novoArray.push(numeros);
   }
   return novoArray;
 }
@@ -30,8 +30,8 @@ function retornaNumerosPares(array) {
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
   let novoArray = [];
-  for (let i of array) {
-    if (i % 2 === 0) novoArray.push(i * i);
+  for (let numero of array) {
+    if (numero % 2 === 0) novoArray.push(numero * numero);
   }
   return novoArray;
 }
@@ -49,7 +49,35 @@ function retornaMaiorNumero(array) {
 }
 
 // EXERCÍCIO 07
-function retornaObjetoEntreDoisNumeros(num1, num2) {}
+function retornaObjetoEntreDoisNumeros(num1, num2) {
+  let menorNumero = 0;
+  let maiorNumero = 0;
+  let maiorDivisivelPorMenor = 0;
+
+  if (num1 > num2) {
+    maiorNumero = num1;
+    menorNumero = num2;
+  } else {
+    maiorNumero = num2;
+    menorNumero = num1;
+  }
+
+  if (maiorNumero % menorNumero == 0) {
+    maiorDivisivelPorMenor = true;
+  } else {
+    maiorDivisivelPorMenor = false;
+  }
+
+  let diferenca = maiorNumero - menorNumero;
+
+  const retornaObjeto = {
+    maiorNumero: maiorNumero,
+    maiorDivisivelPorMenor: maiorDivisivelPorMenor,
+    diferenca: diferenca,
+  };
+
+  return retornaObjeto;
+}
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {}
