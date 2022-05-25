@@ -1,0 +1,89 @@
+header {
+  display: inline-block;
+  background-color: rebeccapurple;
+  padding: 15px;
+  padding-right: 90px;
+  border-radius: 5px;
+  color: white;
+}
+
+nav {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+a {
+  background-color: rebeccapurple;
+  padding: 10px;
+  border-radius: 5px;
+
+  text-decoration: none;
+  color: white;
+}
+
+section {
+  width: 512px;
+}
+
+.product-1 {
+  border-radius: 5px;
+  background-color: rebeccapurple;
+}
+
+.product-image {
+  margin-left: 7vw;
+}
+
+#product-promo {
+  text-align: center;
+  color: red;
+}
+
+#product-title {
+  text-align: center;
+  color: white;
+}
+
+#product-price {
+  text-align: center;
+  color: white;
+}
+
+footer {
+  width: 512px;
+  margin-top: 10px;
+
+  text-align: center;
+
+  border-radius: 5px;
+  background-color: rebeccapurple;
+
+  cursor: pointer;
+  color: white;
+}
+
+table {
+  color: white;
+}
+
+tr {
+  background-color: rebeccapurple;
+}
+
+input {
+  padding: 5px;
+  background-color: aliceblue;
+  border-radius: 2px;
+  border: 1px solid gray;
+  margin: 5px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: rebeccapurple;
+  color: white;
+  padding: 20px;
+}
