@@ -21,8 +21,8 @@ h2 {
 }
 
 ol {
-  width: 20%;
-  margin-left: 40%;
+  width: fit-content;
+  margin: auto;
 }
 
 input {
