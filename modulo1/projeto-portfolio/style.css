@@ -14,6 +14,10 @@ header {
     text-align: left;
 }
 
+nav {
+    text-align: center;
+}
+
 span {
     font-size: .9rem;
 }
@@ -22,7 +26,7 @@ section {
     margin: 5rem;
 }
 
-.home {
+#home {
     padding: 10px;
 }
 
@@ -77,11 +81,11 @@ section {
     text-align: right;
 }
 
-.my-projects {
+#my-projects {
     text-align: center;
 }
 
-.contact-me {
+#contact-me {
     padding: 20px;
 }
 
@@ -94,7 +98,7 @@ section {
     margin-top: 5rem;
 }
 
-.my-skills {
+#my-skills {
     text-align: start;
 }
 
