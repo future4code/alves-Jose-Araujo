@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Epilogue', sans-serif;
+}
+
+body {
+    color: white;
+    background-color: #151515;
+}
+
+header {
+    text-align: left;
+}
+
+span {
+    font-size: .9rem;
+}
+
+section {
+    margin: 5rem;
+}
+
+.home {
+    padding: 10px;
+}
+
+.my-name {
+    margin: 0.8rem 0rem 0.8rem 0rem;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.title > h1 {
+    color: #663399;
+}
+
+.btn-about {
+    text-decoration: none;
+    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+
+    border-radius: 5px;
+    cursor: pointer;
+
+    background-color: #663399;
+    color: white;
+
+    margin-top: 1rem;
+    font-weight: bold;
+    transition: all .5s;
+
+}
+
+.btn-about:hover {
+    transition: all .5s;
+    background-color: #753eac;
+    color: white;
+}
+
+.text {
+    position: absolute;
+}
+
+.title {
+    text-align: center;
+}
+
+.logo {
+    text-align: right;
+}
+
+.my-projects {
+    text-align: center;
+}
+
+.contact-me {
+    padding: 20px;
+}
+
+.about-me-center {
+    display: inline-block;
+}
+
+.text-about-me {
+    text-align: start;
+    margin-top: 5rem;
+}
+
+.my-skills {
+    text-align: start;
+}
+
+.html, .css, .javascript {
+    padding: 40px;
+    border-radius: 5px;
+    background-color: #1d1d1d;
+
+    margin-top: 15px;
+    box-shadow:2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02);
+    transition: all .5s;
+}
+
+.html {
+    border-bottom: 5px solid #ff6d00;
+}
+
+.css {
+    border-bottom: 5px solid #039be5;
+}
+
+.javascript {
+    border-bottom: 5px solid #ffd600;
+}
+
+.html:hover {
+    opacity: 0.5;
+}
+
+.css:hover{
+    opacity: 0.5;
+}
+
+.javascript:hover {
+    opacity: 0.5;
+}
+
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+  /* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #663399;
+    color: white;
+    padding: 12px 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+  /* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #753eac;
+}
+
+.social-links {
+    margin-bottom: 2rem;
+    text-align: center;
+}
