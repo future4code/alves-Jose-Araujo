@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,20 +12,19 @@
     <!-- css -->
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/ebdef2ed52.js" crossorigin="anonymous" defer></script>
-
 </head>
 <body>
     <header>
-        <img src="./img/logo.png" alt="" width="102" height="102">
-
+        <img class="logomarca" src="./img/logo.png" alt="" width="102" height="102">
         <nav>
-            <a href="#home">Início</a>
-            <a href="#about-me">Sobre mim</a>
-            <a href="#my-skills">Conhecimentos</a>
-            <a href="#my-projects">Projetos</a>
-            <a href="#contact-me">Contatos</a>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about-me">Sobre mim</a></li>
+                <li><a href="#my-skills">Conhecimentos</a></li>
+                <li><a href="#my-projects">Projetos</a></li>
+                <li><a href="#contact-me">Contatos</a></li>
+            </ul>
         </nav>
-    
     </header>
 
     
@@ -35,7 +34,7 @@
                 <h1 class="my-name">Carlos Araújo</h1>
                 <h2 class="subtitle">Desenvolvedor Web</h2>
                 <p>
-                    Atuamente focado no ecossistema do <strong>Javascript</strong>.
+                    Atuamente <strong>focado</strong> no ecossistema do <strong>Javascript</strong>.
                 </p>
                 <button class="btn-about">Saiba mais</button>
             </div>
@@ -85,20 +84,26 @@
         </section>
 
         <section id="my-projects">
-            <span>Meus projetos</span>
-            <h1>Projetos</h1>
+            <div class="title">
+                <span>o que venho fazendo</span>
+                <h1>Meus Projetos</h1>
+            </div>
             <div class="project-1">
-                <img src="https://c.tenor.com/lI5JYzdUEe8AAAAC/heston-skype.gif" alt="" width="500" height="200">
+                <a href="https://github.com/future4code/alves-Jose-Araujo/tree/master/modulo1/projeto-blackjack" target="_blank"><img src="./img/blackjack.png" alt="" width="500" height="200"></a>
             </div>
             <div class="project-2">
-                <img src="https://c.tenor.com/lI5JYzdUEe8AAAAC/heston-skype.gif" alt="" width="500" height="200">
+                <a href="https://github.com/future4code/alves-Jose-Araujo/tree/master/modulo1/html-sistema-loja" target="_blank"><img src="./img/htmlecss.png" alt="" width="500" height="200"></a>
             </div>
             <div class="project-3">
-                <img src="https://c.tenor.com/lI5JYzdUEe8AAAAC/heston-skype.gif" alt="" width="500" height="200">
+                <a href=""><img src="./img/blackjack.png" alt="" width="500" height="200"></a>
             </div>
         </section>
 
         <section id="contact-me">
+            <div class="title">
+                <span>Entrar em contato</span>
+                <h1>Contato</h1>
+            </div>
             <form action="">
                 <label for="fname">Nome</label>
                 <input type="text" id="fname" name="firstname" placeholder="Seu nome...">
@@ -115,9 +120,9 @@
     </main>
 
     <footer class="social-links">
-        <a href=""><i class="fa-brands fa-github-square fa-2xl"></i></a>
-        <a href=""><i class="fa-brands fa-linkedin fa-2xl"></i></a>
-        <a href=""><i class="fa-brands fa-instagram-square fa-2xl"></i></a>
+        <a href="http://github.com/carlosaaraujo" target="_blank"><i class="fa-brands fa-github-square fa-2xl"></i></a>
+        <a href="http://linkedin.com/carlosaaraujo" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+        <a href="http://instagram.com" target="_blank"><i class="fa-brands fa-instagram-square fa-2xl"></i></a>
     </footer>
 
 </body>
