@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    text-decoration: none;
+    color: black;
+}
+
+html, body {
+    height: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: auto;
+    height: auto;
+
+    padding: 20px;
+    background-color: orange;
+}
+
+input[type=search] {
+    padding: 7px;
+    font-size: 15px;
+
+    border: none;
+    float: left;
+
+    outline: none;
+    max-width: 40%;
+    background: #f1f1f1;
+
+    margin-right: 4vw;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+
+    grid-gap: 15px;
+    grid-template-columns: repeat(4, auto);
+
+    padding: 4.3vh;
+}
+
+main > div {
+    border: 1px solid limegreen;
+}
+
+main > div > h3 {
+    margin: 15px 0px 15px 5px;
+}
+
+footer {
+    margin-top: 22.3vh;
+    padding: 15px;
+    background-color: darkslategray;
+    border-bottom: 1px solid orange;
+}
+
+footer > h1 {
+    color: white;
+}
