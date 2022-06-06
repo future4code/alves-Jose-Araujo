@@ -1,4 +1,6 @@
 import './App.css';
+import logo from "./img/logo.png"
+import { MagnifyingGlass, House, Fire, Play, ClockCounterClockwise, Queue } from "phosphor-react"
 
 function App() {
     const titulo = "Título do vídeo"
@@ -11,19 +13,24 @@ return (
     <div>
         <div className="tela-inteira">
             <header>
-                    <h1>Lab Tube</h1>
+                <img src={logo} alt="Logo marca do site" />
+
+                <div className='search-button'>
                     <input type="text" placeholder="Busca" id="campoDeBusca" />
+                    <button><MagnifyingGlass size={20} color="#fff" weight="bold" /></button>
+                </div>
             </header>
 
             <main>
                 <nav className="menu-vertical">
                     <ul>
-                        <li className="botoes-meunu-vertical">Início</li>
-                        <li className="botoes-meunu-vertical">Em alta</li>
-                        <li className="botoes-meunu-vertical">Inscrições</li>
+                        <li className="menu-flex botoes-meunu-vertical"><span><House size={20} color="#f6b042" /></span>Início
+                        </li>
+                        <li className="menu-flex botoes-meunu-vertical"><span><Fire size={20} color="#f6b042" /></span>Em alta</li>
+                        <li className="menu-flex botoes-meunu-vertical"><span><Play size={20} color="#f6b042" /></span>Inscrições</li>
                         <hr/>
-                        <li className="botoes-meunu-vertical">Originais</li>
-                        <li className="botoes-meunu-vertical">Histórico</li>
+                        <li className="menu-flex botoes-meunu-vertical"><span><Queue size={20} color="#f6b042" /></span>Playlist</li>
+                        <li className="menu-flex botoes-meunu-vertical"><span><ClockCounterClockwise size={20} color="#f6b042" /></span>Histórico</li>
                     </ul>
                 </nav>
 
