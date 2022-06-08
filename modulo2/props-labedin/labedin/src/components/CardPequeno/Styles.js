@@ -9,14 +9,6 @@ export const SectionCardPequeno = styled.section`
 		margin-top: 10px;
 	}
 
-	.info {
-		align-items: center;
-		display: flex;
-
-		padding: 15px;
-		margin-top: 10px;
-	}
-
 	.info > h4 {
 		margin-right: 5px;
 	}
