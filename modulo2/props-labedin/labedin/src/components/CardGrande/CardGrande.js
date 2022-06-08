@@ -1,5 +1,4 @@
 import React from "react";
-import "./CardGrande.css";
 import { BigCardContainer } from "./Styles";
 
 function CardGrande(props) {
