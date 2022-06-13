@@ -41,9 +41,15 @@ export default class App extends Component {
 			<AppContainer>
 				{this.renderizaEtapa()}
 
-				<ButtonNextStep onClick={() => this.irParaProximaEtapa()}>
-					Próxima etapa
-				</ButtonNextStep>
+				{this.state.etapa <= 3 ? (
+					<ButtonNextStep onClick={() => this.irParaProximaEtapa()}>
+						Próxima etapa
+					</ButtonNextStep>
+				) : (
+					<ButtonNextStep onClick={() => this.setState({ etapa: 1 })}>
+						Voltar para o início
+					</ButtonNextStep>
+				)}
 			</AppContainer>
 		);
 	}
