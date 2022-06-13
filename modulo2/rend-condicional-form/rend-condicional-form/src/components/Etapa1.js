@@ -12,6 +12,7 @@ export default class Etapa1 extends Component {
 				<h3>ETAPA 1 - DADOS GERAIS</h3>
 				<p>1. Qual o seu nome?</p>
 				<input type="text" placeholder="Digite o seu nome" />
+
 				<p>2. Qual sua idade?</p>
 				<input type="number" placeholder="Digite a sua idade" />
 				<p>3. Qual seu email?</p>
