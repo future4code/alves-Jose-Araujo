@@ -1,23 +1,198 @@
 import React from "react";
 import styled from "styled-components";
 import "./styles.css";
+import Plus from "./img/plus.svg";
+import Trash from "./img/trash.svg";
+import Pencil from "./img/pencil.svg";
 
 const TarefaList = styled.ul`
+	text-align: left;
+	width: 100%;
 	padding: 0;
-	width: 200px;
 `;
 
 const Tarefa = styled.li`
-	text-align: left;
 	user-select: none;
+	width: 100%;
+
 	text-decoration: ${({ completa }) =>
 		completa ? "line-through" : "none"};
+
+	background-color: #2196f3;
+	color: white;
+
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	list-style: none;
+	margin: 5px 10px;
+
+	padding: 10px;
+	border-radius: 5px;
+
+	transition: all 0.2s;
+	cursor: pointer;
+
+	:hover {
+		transition: all 0.2s;
+		opacity: 0.8;
+	}
 `;
 
 const InputsContainer = styled.div`
-	display: grid;
-	grid-auto-flow: column;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
 	gap: 10px;
+	margin-left: 55px;
+
+	input {
+		width: 250px;
+		height: 45px;
+
+		padding: 0 8px;
+		border: 2px solid #dcdcdc;
+
+		border-radius: 5px;
+		outline: none;
+
+		:focus {
+			border: 2px solid #2196f3;
+		}
+	}
+
+	button {
+		display: flex;
+		align-items: center;
+
+		justify-content: center;
+		flex-direction: row;
+
+		background-color: #2196f3;
+		color: white;
+
+		cursor: pointer;
+		padding: 10px;
+
+		border-radius: 5px;
+		border: none;
+		transition: all 0.2s;
+
+		:hover {
+			opacity: 0.8;
+			transition: all 0.2s;
+		}
+	}
+`;
+
+const InputContainerSelect = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin-top: 10px;
+
+	input {
+		width: 250px;
+		height: 45px;
+
+		padding: 0 8px;
+		border: 2px solid #2196f3;
+		border-radius: 5px;
+		outline: none;
+	}
+
+	select {
+		width: 250px;
+		height: 45px;
+
+		padding: 0 5px;
+		border-radius: 5px;
+		/* margin-right: 70px; */
+
+		color: grey;
+		background: #fff;
+		box-shadow: 0 1px 3px -2px #9098a9;
+		cursor: pointer;
+
+		border: 2px solid #dcdcdc;
+		outline: none;
+
+		:active {
+			border: 2px solid #2196f3;
+		}
+	}
+`;
+
+const TituloTodoList = styled.h1`
+	width: 90%;
+	height: 7vh;
+
+	padding: 5px;
+	margin: 15px 0;
+
+	border: 2px solid #2196f3;
+	border-radius: 5px;
+	color: #2196f3;
+`;
+
+const ButtonDelete = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	outline: none;
+	border: none;
+
+	padding: 10px;
+	border-radius: 4px;
+
+	background-color: #2196f3;
+	cursor: pointer;
+	transition: all 0.2s;
+
+	:hover {
+		transition: all 0.2s;
+		background-color: #047cdb;
+	}
+
+	img {
+		width: 25px;
+	}
+`;
+
+const ButtonEdit = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	outline: none;
+	border: none;
+
+	padding: 10px;
+	border-radius: 4px;
+	margin-right: 10px;
+
+	background-color: #2196f3;
+	cursor: pointer;
+	transition: all 0.2s;
+
+	:hover {
+		transition: all 0.2s;
+		background-color: #047cdb;
+	}
+
+	img {
+		width: 25px;
+	}
+`;
+
+const TarefaListContainter = styled.div`
+	margin-top: 20px;
+	width: 90%;
+`;
+
+const ImagemButton = styled.img`
+	width: 25px;
 `;
 
 class App extends React.Component {
@@ -29,8 +204,6 @@ class App extends React.Component {
 
 	// Salvar as tarefas sempre que uma nova tarefa for criada.
 	componentDidUpdate() {
-		localStorage.setItem("tarefas", this.state.inputValue);
-
 		localStorage.setItem(
 			"listaDeTarefas",
 			JSON.stringify(this.state.tarefas)
@@ -55,6 +228,7 @@ class App extends React.Component {
 
 		const novaListaDeTarefas = [novaTarefa, ...this.state.tarefas];
 		this.setState({ tarefas: novaListaDeTarefas });
+		this.setState({ inputValue: "" });
 	};
 
 	selectTarefa = (id) => {
@@ -70,6 +244,16 @@ class App extends React.Component {
 
 		this.setState({ tarefas: novaListaDeTarefas });
 	};
+
+	deletarTarefa = (id) => {
+		const removerTarefaDaLista = this.state.tarefas.filter(
+			(tarefa) => tarefa.id !== id
+		);
+
+		this.setState({ tarefas: removerTarefaDaLista });
+	};
+
+	editarTarefa = (id) => {};
 
 	onChangeFilter = (e) => {
 		this.setState({ filtro: e.target.value });
@@ -89,44 +273,58 @@ class App extends React.Component {
 
 		return (
 			<div className="App">
-				<h1>Lista de tarefas</h1>
+				<TituloTodoList>Lista de tarefas</TituloTodoList>
 
 				<InputsContainer>
 					<input
 						value={this.state.inputValue}
 						onChange={this.onChangeInput}
+						placeholder="Adicionar uma nova tarefa"
 					/>
-
-					<button onClick={this.criaTarefa}>Adicionar</button>
+					<button onClick={this.criaTarefa}>
+						<ImagemButton src={Plus} />
+					</button>
 				</InputsContainer>
 
-				<br />
-
-				<InputsContainer>
-					<label>Filtro</label>
+				<InputContainerSelect>
 					<select
 						value={this.state.filtro}
 						onChange={this.onChangeFilter}
 					>
-						<option value="">Nenhum</option>
-						<option value="pendentes">Pendentes</option>
-						<option value="completas">Completas</option>
+						<option value="">Selecionar Filtro</option>
+						<option value="pendentes">Filtro: Pendentes</option>
+						<option value="completas">Filtro: Completas</option>
 					</select>
-				</InputsContainer>
+				</InputContainerSelect>
 
-				<TarefaList>
-					{listaFiltrada.map((tarefa, index) => {
-						return (
-							<Tarefa
-								key={index}
-								completa={tarefa.completa}
-								onClick={() => this.selectTarefa(tarefa.id)}
-							>
-								{tarefa.texto}
-							</Tarefa>
-						);
-					})}
-				</TarefaList>
+				<TarefaListContainter>
+					<TarefaList>
+						{listaFiltrada.map((tarefa, index) => {
+							return (
+								<div className="teste">
+									<Tarefa
+										key={index}
+										completa={tarefa.completa}
+										onClick={() => this.selectTarefa(tarefa.id)}
+									>
+										{tarefa.texto}
+									</Tarefa>
+									<ButtonEdit className="tooltip">
+										<span class="tooltiptext">Editar Tarefa</span>
+										<img src={Pencil} />
+									</ButtonEdit>
+									<ButtonDelete
+										className="tooltip"
+										onClick={() => this.deletarTarefa(tarefa.id)}
+									>
+										<span class="tooltiptext">Deletar Tarefa</span>
+										<img src={Trash} />
+									</ButtonDelete>
+								</div>
+							);
+						})}
+					</TarefaList>
+				</TarefaListContainter>
 			</div>
 		);
 	}
