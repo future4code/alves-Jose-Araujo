@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./styles.css";
+
 import Plus from "./img/plus.svg";
 import Trash from "./img/trash.svg";
 import Pencil from "./img/pencil.svg";
@@ -18,10 +19,12 @@ const Tarefa = styled.li`
 	text-decoration: ${({ completa }) =>
 		completa ? "line-through" : "none"};
 
-	background-color: #2196f3;
-	color: white;
+	background-color: ${({ completa }) =>
+		completa ? "none" : "#2196f3"};
 
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border: 2px solid #2196f3;
+	color: ${({ completa }) => (completa ? "#2196f3" : "white")};
+
 	list-style: none;
 	margin: 5px 10px;
 
@@ -32,8 +35,8 @@ const Tarefa = styled.li`
 	cursor: pointer;
 
 	:hover {
-		transition: all 0.2s;
 		opacity: 0.8;
+		transition: all 0.2s;
 	}
 `;
 
@@ -78,7 +81,7 @@ const InputsContainer = styled.div`
 		transition: all 0.2s;
 
 		:hover {
-			opacity: 0.8;
+			background-color: #047cdb;
 			transition: all 0.2s;
 		}
 	}
@@ -247,7 +250,10 @@ class App extends React.Component {
 
 	deletarTarefa = (id) => {
 		const removerTarefaDaLista = this.state.tarefas.filter(
-			(tarefa) => tarefa.id !== id
+			(tarefa) => {
+				// Ele vai pecorrer todo o array checando o id do elemento clicado, o id que for igual é removido pois retorna false.
+				return id !== tarefa.id;
+			}
 		);
 
 		this.setState({ tarefas: removerTarefaDaLista });
@@ -282,7 +288,7 @@ class App extends React.Component {
 						placeholder="Adicionar uma nova tarefa"
 					/>
 					<button onClick={this.criaTarefa}>
-						<ImagemButton src={Plus} />
+						<ImagemButton src={Plus} alt="" />
 					</button>
 				</InputsContainer>
 
@@ -310,15 +316,17 @@ class App extends React.Component {
 										{tarefa.texto}
 									</Tarefa>
 									<ButtonEdit className="tooltip">
-										<span class="tooltiptext">Editar Tarefa</span>
-										<img src={Pencil} />
+										<span className="tooltiptext">Editar Tarefa</span>
+										<img src={Pencil} alt="" />
 									</ButtonEdit>
 									<ButtonDelete
 										className="tooltip"
 										onClick={() => this.deletarTarefa(tarefa.id)}
 									>
-										<span class="tooltiptext">Deletar Tarefa</span>
-										<img src={Trash} />
+										<span className="tooltiptext">
+											Deletar Tarefa
+										</span>
+										<img src={Trash} alt="" />
 									</ButtonDelete>
 								</div>
 							);
