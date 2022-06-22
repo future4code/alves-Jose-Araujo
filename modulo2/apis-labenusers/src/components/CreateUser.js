@@ -25,6 +25,7 @@ export default class CreateUser extends Component {
 			)
 			.then((res) => {
 				alert("Usuário cadastrado com sucesso!");
+				this.setState({ name: "", email: "" });
 			})
 			.catch((erro) => {
 				alert(erro);
@@ -49,14 +50,14 @@ export default class CreateUser extends Component {
 					<input
 						type="text"
 						placeholder="Nome"
-						value={this.name}
+						value={this.state.name}
 						onChange={this.onChangeName}
 					/>
 
 					<input
 						type="text"
 						placeholder="E-mail"
-						value={this.email}
+						value={this.state.email}
 						onChange={this.onChangeEmail}
 					/>
 					<button onClick={this.createUser}>
