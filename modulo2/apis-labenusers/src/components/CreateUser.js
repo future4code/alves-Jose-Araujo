@@ -1,5 +1,41 @@
 import axios from "axios";
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const ContainerInputs = styled.div`
+	width: 30%;
+	max-width: 500px;
+
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+
+	text-align: center;
+	border: 1px solid black;
+	font-family: sans-serif;
+
+	input,
+	button {
+		padding: 10px;
+		margin: 10px;
+
+		border: none;
+		font-size: 16px;
+		border-radius: 4px;
+	}
+
+	button {
+		color: white;
+		background-color: blueviolet;
+
+		transition: filter 0.2s;
+		cursor: pointer;
+
+		:hover {
+			filter: brightness(1.1);
+		}
+	}
+`;
 
 export default class CreateUser extends Component {
 	state = {
@@ -46,7 +82,7 @@ export default class CreateUser extends Component {
 				<button onClick={this.props.screenUserList}>
 					Trocar de tela
 				</button>
-				<div>
+				<ContainerInputs>
 					<input
 						type="text"
 						placeholder="Nome"
@@ -63,7 +99,7 @@ export default class CreateUser extends Component {
 					<button onClick={this.createUser}>
 						Cadastrar novo usuário
 					</button>
-				</div>
+				</ContainerInputs>
 			</>
 		);
 	}
