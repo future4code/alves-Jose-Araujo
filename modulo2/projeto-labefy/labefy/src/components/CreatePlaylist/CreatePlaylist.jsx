@@ -1,6 +1,8 @@
 import axios from "axios"
 import React, { Component } from "react"
 
+import {ContainerCreatePlaylist} from "./styles"
+
 export default class CreatePlaylist extends Component {
     state = {
         name: ""
@@ -35,16 +37,19 @@ export default class CreatePlaylist extends Component {
 
     render() {
         return (
-            <div>
-                <input 
-                    value={this.state.name}
-                    onChange={this.onChangeName}
-                    type={"text"}
-                    placeholder="Digite o nome da playlist"
-                />
+            <ContainerCreatePlaylist>
+                <div className="BoxCreatePlaylist">
+                    <h1>Adicionar Música</h1>
+                    <input 
+                        value={this.state.name}i
+                        onChange={this.onChangeName}
+                        type={"text"}
+                        placeholder="Digite o nome da playlist"
+                    />
 
-                <button onClick={this.createPlaylist}>Criar playlist</button>
-            </div>
+                    <button onClick={this.createPlaylist}>Confirmar</button>
+                </div>
+            </ContainerCreatePlaylist>
         )
     }
 }
