@@ -13,42 +13,68 @@ export const ContainerHome = styled.section`
     margin: 0 auto;
     gap: 20px;
 
-    span {
-        width: 120px;
-        height: 120px;
-
+    ul {
         display: flex;
+        align-items: center;
         justify-content: center;
-        align-items: center;
 
-        border-radius: 50%;
-        background-color: #cdf27e;
-
-        margin-bottom: 20px;
-        transition: transform 0.2s;
-    }
-
-    .PlaylistBox {
-        display: flex;
-        justify-content: space-evenly;
-
-        flex-direction: column;
-        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        background: rgb(36, 36, 36);
 
         border-radius: 5px;
-        padding: 50px;
+        list-style: none;
 
-        background: #242424;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        padding: 50px;
         transition: opacity 0.2s;
 
-        :hover {
-            opacity: 0.5;
-            cursor: pointer;
+        li {
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            flex-direction: column;
+            color: white;
+
+            span {
+                width: 120px;
+                height: 120px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                border-radius: 50%;
+                background-color: #cdf27e;
+
+                margin-bottom: 20px;
+                transition: transform 0.2s;
+            }
         }
 
-        h4, p {
-            color: white;
-        }        
+        :hover {
+            cursor: pointer;
+            opacity: 0.5;
+        }
+
+        button {
+            padding: 10px 45px;
+            margin-top: 20px;
+
+            font-weight: 700;
+            text-transform: uppercase;
+
+            font-family: "Poppins", sans-serif;
+            background-color: black;
+
+            color: #cdf27e;
+            border-radius: 5px;
+            
+            border: none;
+            transition: opacity 0.2s;
+
+            :hover {
+                opacity: 0.5;
+            }
+        }
     }
-`
+`;

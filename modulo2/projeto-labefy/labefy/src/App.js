@@ -42,7 +42,6 @@ export default class App extends Component {
 
 	screenCreatePlaylist = () => {
 		this.setState({ onScreen: "CreatePlaylist"})
-		console.log("deu certo")
 	}
 
 	screenGetAllPlaylists = () => {
