@@ -4,19 +4,18 @@ export const ContainerApp = styled.main`
 	display: flex;
 
 	nav {
-		width: 15%;
+		max-width: 20%;
 		height: 100vh;
 		background-color: #000;
 
-		h1 {
-			color: white;
-			text-align: left;
-			margin: 20px 20px;
+		img {
+			margin: 25px 10px;
+			width: 200px;
 		}
 
 		hr {
 			margin: 0 auto;
-			width: 220px;
+			width: 260px;
 
 			opacity: 0.2;
 			margin-top: 20px;
@@ -51,7 +50,6 @@ export const ContainerApp = styled.main`
 
 				border-radius: 2px;
 				padding: 5px;
-
 				background-color: #b3b3b3;
 			}
 

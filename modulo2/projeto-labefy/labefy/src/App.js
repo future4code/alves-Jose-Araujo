@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import CreatePlaylist from "./components/CreatePlaylist/CreatePlaylist";
-import GetAllPlaylists from "./components/GetAllPlaylists";
+import GetAllPlaylists from "./components/GetAllPlaylists/GetAllPlaylists";
 
 import { GlobalStyle } from "./Global";
 import { ContainerApp } from "./styles"
+
+import LogoMarca from "./img/logo.png";
+import Home from "./pages/Home"
 
 import {
 	MagnifyingGlass, 
@@ -14,11 +17,13 @@ import {
 
 export default class App extends Component {
 	state = {
-		onScreen: "CreatePlaylist",
+		onScreen: "Home",
 	}
 
 	changeScreen = () => {
 		switch (this.state.onScreen) {
+			case "Home":
+				return (<Home screenHomePlaylists={this.screenHomePlaylists}/>)
 			case "CreatePlaylist":
 				return (<CreatePlaylist screenGetAllPlaylists={this.screenGetAllPlaylists}/>)
 			case "GetAllPlaylists":
@@ -30,10 +35,15 @@ export default class App extends Component {
 
 	screenCreatePlaylist = () => {
 		this.setState({ onScreen: "CreatePlaylist"})
+		console.log("deu certo")
 	}
 
 	screenGetAllPlaylists = () => {
 		this.setState({ onScreen: "GetAllPlaylists"})
+    }
+
+	screenHomePlaylists = () => {
+		this.setState({ onScreen: "Home"})
     }
 
 	render() {
@@ -41,9 +51,9 @@ export default class App extends Component {
 			<ContainerApp>
 				<GlobalStyle />
 				<nav>
-					<h1>Labefy</h1>
+					<img src={LogoMarca} alt=""/>
 					<ul>
-						<li>
+						<li onClick={this.screenHomePlaylists}>
 							<span>
 								<House size={24} color="#b3b3b3" />
 							</span>
@@ -63,19 +73,19 @@ export default class App extends Component {
 							</p>
 						</li>
 
-						<li>
+						<li onClick={this.screenGetAllPlaylists}>
 							<span>
 								<Playlist size={24} color="#b3b3b3" />
 							</span>
 
 							<p>
-								Minhas Playlist
+								Minhas Playlists
 							</p>
 						</li>
 
 						<hr />
 
-						<li>
+						<li onClick={this.screenCreatePlaylist}>
 							<span className="btn-plus">
 								<Plus size={15} color="#242424" weight="bold" />
 							</span>
@@ -96,6 +106,8 @@ export default class App extends Component {
 						</li>
 					</ul>
 				</nav>
+				{/* <Home/> */}
+				{/* <GetAllPlaylists /> */}
 				{this.changeScreen()}
 			</ContainerApp>
 		);

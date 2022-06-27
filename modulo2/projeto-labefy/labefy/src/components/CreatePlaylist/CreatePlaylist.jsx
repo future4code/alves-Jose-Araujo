@@ -1,7 +1,8 @@
 import axios from "axios"
 import React, { Component } from "react"
-
 import {ContainerCreatePlaylist} from "./styles"
+
+import { Playlist } from "phosphor-react"
 
 export default class CreatePlaylist extends Component {
     state = {
@@ -39,7 +40,10 @@ export default class CreatePlaylist extends Component {
         return (
             <ContainerCreatePlaylist>
                 <div className="BoxCreatePlaylist">
-                    <h1>Adicionar Música</h1>
+                    <span>
+                        <Playlist size={60} color="#242424" weight="fill"/>
+                    </span>
+
                     <input 
                         value={this.state.name}i
                         onChange={this.onChangeName}

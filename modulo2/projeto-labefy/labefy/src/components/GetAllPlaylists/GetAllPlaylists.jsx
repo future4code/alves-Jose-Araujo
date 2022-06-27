@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import axios from "axios"
 
+import { ContainerAllPlaylists } from './style'
+import {Playlist} from "phosphor-react"
+
 export default class getAllPlaylists extends Component {
   state = {
     allPlaylist: [],
@@ -51,17 +54,18 @@ export default class getAllPlaylists extends Component {
       return (
         <ul key={playlist.id}>
           <li>
-            {playlist.name}
-            <button onClick={() => this.deletePlaylist(playlist.id)}>X</button>
+            <span><Playlist size={60} color="#242424" weight="fill" /></span>
+            <p>{playlist.name}</p>
+            <button onClick={() => this.deletePlaylist(playlist.id)}>Remover</button>
           </li>
         </ul>
       )
     })
 
     return (
-      <div>
+      <ContainerAllPlaylists>
         {listOfPlaylists}
-      </div>
+      </ContainerAllPlaylists>
     )
   }
 }
