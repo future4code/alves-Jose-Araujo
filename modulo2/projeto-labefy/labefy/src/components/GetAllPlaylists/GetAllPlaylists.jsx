@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios"
 
-import { ContainerAllPlaylists } from './style'
+import { ContainerAllPlaylists } from './styles'
 import {Playlist} from "phosphor-react"
 
 export default class getAllPlaylists extends Component {

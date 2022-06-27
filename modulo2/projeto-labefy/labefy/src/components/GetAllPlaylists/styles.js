@@ -23,7 +23,9 @@ export const ContainerAllPlaylists = styled.section`
 
         border-radius: 5px;
         list-style: none;
+
         padding: 50px;
+        transition: opacity 0.2s;
 
         li {
             display: flex;
@@ -32,7 +34,6 @@ export const ContainerAllPlaylists = styled.section`
             align-items: center;
             flex-direction: column;
             color: white;
-
 
             span {
                 width: 120px;
@@ -47,13 +48,12 @@ export const ContainerAllPlaylists = styled.section`
 
                 margin-bottom: 20px;
                 transition: transform 0.2s;
-
-                
-                :hover {
-                    border: 2px solid white;
-                    transform: scale(1.1);
-                }
             }
+        }
+
+        :hover {
+            cursor: pointer;
+            opacity: 0.5;
         }
 
         button {

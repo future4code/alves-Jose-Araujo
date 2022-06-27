@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import CreatePlaylist from "./components/CreatePlaylist/CreatePlaylist";
 import GetAllPlaylists from "./components/GetAllPlaylists/GetAllPlaylists";
+import AddTrackToPlaylist from "./components/AddTrackToPlaylist/AddTrackToPlaylist";
+import Home from "./pages/Home"
+
 
 import { GlobalStyle } from "./Global";
 import { ContainerApp } from "./styles"
-
 import LogoMarca from "./img/logo.png";
-import Home from "./pages/Home"
 
 import {
 	MagnifyingGlass, 
@@ -28,9 +29,15 @@ export default class App extends Component {
 				return (<CreatePlaylist screenGetAllPlaylists={this.screenGetAllPlaylists}/>)
 			case "GetAllPlaylists":
 				return (<GetAllPlaylists screenGetAllPlaylists={this.screenCreatePlaylist}/>)
+			case "AddTrackToPlaylist":
+				return (<AddTrackToPlaylist screenAddTrackToPlaylist={this.screenAddTrackToPlaylist}/>)
 			default:
 				return (<div>Loading...</div>)
 		}
+	}
+
+	screenHomePlaylists = () => {
+		this.setState({ onScreen: "Home"})
 	}
 
 	screenCreatePlaylist = () => {
@@ -42,8 +49,8 @@ export default class App extends Component {
 		this.setState({ onScreen: "GetAllPlaylists"})
     }
 
-	screenHomePlaylists = () => {
-		this.setState({ onScreen: "Home"})
+	screenAddTrackToPlaylist = () => {
+		this.setState({ onScreen: "AddTrackToPlaylist"})
     }
 
 	render() {
@@ -95,7 +102,7 @@ export default class App extends Component {
 							</p>
 						</li>
 
-						<li>
+						<li onClick={this.screenAddTrackToPlaylist}>
 							<span className="btn-music">
 								<MusicNotes size={15} color="#fcfcfc" weight="fill" />
 							</span>
@@ -106,9 +113,8 @@ export default class App extends Component {
 						</li>
 					</ul>
 				</nav>
-				{/* <Home/> */}
-				{/* <GetAllPlaylists /> */}
 				{this.changeScreen()}
+				{/* <AddTrackToPlaylist /> */}
 			</ContainerApp>
 		);
 	}
