@@ -1,80 +1,83 @@
 import styled from "styled-components";
 
 export const ContainerAllPlaylists = styled.section`
-    width: 50%;
-    height: 100vh;
+	width: 50%;
+	height: 100vh;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 
-    justify-content: center;
-    align-content: center;
+	justify-content: center;
+	align-content: center;
 
-    margin: 0 auto;
-    gap: 20px;
+	margin: 0 auto;
+	gap: 20px;
 
-    ul {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        background: rgb(36, 36, 36);
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+		background: rgb(36, 36, 36);
 
-        border-radius: 5px;
-        list-style: none;
+		border-radius: 5px;
+		list-style: none;
 
-        padding: 50px;
-        transition: opacity 0.2s;
+		padding: 50px;
+		transition: background 0.2s;
 
-        li {
-            display: flex;
-            justify-content: center;
+		li {
+			display: flex;
+			justify-content: center;
 
-            align-items: center;
-            flex-direction: column;
-            color: white;
+			align-items: center;
+			flex-direction: column;
+			color: white;
+		}
 
-            span {
-                width: 120px;
-                height: 120px;
+		:hover {
+			cursor: pointer;
+		}
 
-                display: flex;
-                justify-content: center;
-                align-items: center;
+		button {
+			padding: 10px 45px;
+			margin-top: 20px;
 
-                border-radius: 50%;
-                background-color: #cdf27e;
+			font-weight: 700;
+			text-transform: uppercase;
 
-                margin-bottom: 20px;
-                transition: transform 0.2s;
-            }
-        }
+			font-family: "Poppins", sans-serif;
+			background-color: black;
 
-        :hover {
-            cursor: pointer;
-            opacity: 0.5;
-        }
+			color: #cdf27e;
+			border-radius: 5px;
 
-        button {
-            padding: 10px 45px;
-            margin-top: 20px;
+			border: none;
+			transition: opacity 0.2s;
 
-            font-weight: 700;
-            text-transform: uppercase;
+			:hover {
+				opacity: 0.5;
+			}
+		}
 
-            font-family: "Poppins", sans-serif;
-            background-color: black;
+		:hover {
+			background: #383838;
+		}
+	}
+`;
 
-            color: #cdf27e;
-            border-radius: 5px;
-            
-            border: none;
-            transition: opacity 0.2s;
+export const PlaylistIcon = styled.span`
+	width: 120px;
+	height: 120px;
 
-            :hover {
-                opacity: 0.5;
-            }
-        }
-    }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 50%;
+	background-color: #cdf27e;
+
+	margin-bottom: 20px;
+	transition: transform 0.2s;
 `;
