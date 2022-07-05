@@ -1,6 +1,35 @@
 import React, { useState, useEffect } from "react";
+import { GlobalStyle } from "./Global";
 import axios from "axios";
 import PokeCard from "./components/PokeCard";
+import styled from "styled-components";
+
+const ContainerPokemon = styled.main`
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+
+	align-items: center;
+	gap: 20px;
+	flex-wrap: wrap;
+`;
+
+const HeaderContainer = styled.header`
+	width: 100%;
+	height: 60px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	h1 {
+		color: grey;
+		font-weight: lighter;
+		text-align: center;
+	}
+`;
 
 function App() {
 	// Passo 3b
@@ -31,33 +60,34 @@ function App() {
 	// Passo 3e
 	const pokeOptions = pokeList.map((pokemon) => {
 		return (
-			<option key={pokemon.name} value={pokemon.name}>
-				{pokemon.name}
-			</option>
+			<PokeCard pokemonName={pokemon.name} />
+			// <option key={pokemon.name} value={pokemon.name}>
+			// 	{pokemon.name}
+			// </option>
 		);
 	});
 
 	// Passo 4a
-	const pokemon = pokeName && <PokeCard pokeName={pokeName} />;
+	// const pokemon = pokeName && <PokeCard pokeName={pokeName} />;
 
 	return (
 		<>
-			<header>
-				<h1>Exibir Pokémon</h1>
-			</header>
-			<hr />
-			<nav>
+			<GlobalStyle />
+			<HeaderContainer>
+				<h1>Pokédex</h1>
+			</HeaderContainer>
+
+			{/* <nav>
 				<label htmlFor={"select-pokemon"}>
 					Selecione um pokemon:
 				</label>
-				{/* Passo 3a */}
 				<select id={"select-pokemon"} onChange={changePokeName}>
 					<option value={""}>Nenhum</option>
-					{/* Passo 3e */}
 					{pokeOptions}
 				</select>
-			</nav>
-			<main>{pokemon}</main>
+			</nav> */}
+
+			<ContainerPokemon>{pokeOptions}</ContainerPokemon>
 		</>
 	);
 }
