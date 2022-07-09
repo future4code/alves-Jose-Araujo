@@ -1,37 +1,59 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { baseURL, headers } from "./constants";
+import { GlobalStyle } from "./Global";
+
+import { ListMatch } from "./components/ListMatch/ListMatch";
+import { ListPeople } from "./components/ListPeople/ListPeople";
+import { ContainerAstroMatch } from "./Style";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Header from "./components/Header/Header";
 
 export default function App() {
-	const [profile, setProfile] = useState("");
+	const [onScreen, setOnScreen] = useState("ListPeople");
 
-	const getProfileChoose = () => {
-		axios
-			.get(`${baseURL}/jose-carlos/person`, headers)
-			.then((request) => {
-				return setProfile(request.data.profile);
-			})
-			.catch((erro) => {
-				return console.log(erro);
-			});
+	const chooseScreen = () => {
+		switch (onScreen) {
+			case "ListPeople":
+				return (
+					<>
+						<Header
+							screenListMatch={screenListMatch}
+							onScreen={onScreen}
+						/>
+						<ListPeople screenListMatch={screenListMatch} />
+					</>
+				);
+			case "ListMatch":
+				return (
+					<>
+						<Header
+							screenListPeople={screenListPeople}
+							onScreen={onScreen}
+						/>
+						<ListMatch screenListPeople={screenListPeople} />
+					</>
+				);
+			default:
+				return (
+					<div>Nada encontrado, tente retornar para o início!</div>
+				);
+		}
+	};
+
+	const screenListMatch = () => {
+		setOnScreen("ListMatch");
+	};
+
+	const screenListPeople = () => {
+		setOnScreen("ListPeople");
 	};
 
 	return (
-		<div className="App">
-			<h1>AstroMatch</h1>
-			<button>Ir para matches</button>
-
-			<hr />
-
-			<h2>Perfis</h2>
-			<img src={profile.photo} alt={profile.alt} width={250} />
-
-			<p>{profile.name}</p>
-			<p>{profile.age}</p>
-			<p>{profile.bio}</p>
-
-			<button onClick={getProfileChoose}>Like</button>
-			<button>Dislike</button>
-		</div>
+		<>
+			<ToastContainer autoClose={3000} />
+			<GlobalStyle />
+			<ContainerAstroMatch>{chooseScreen()}</ContainerAstroMatch>
+		</>
 	);
 }
