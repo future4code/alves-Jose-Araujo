@@ -44,7 +44,7 @@ export function ListPeople() {
 			.post(`${baseURL}/jose-carlos/choose-person`, body)
 			.then((request) => {
 				if (request.data.isMatch) {
-					toast.success("Vocês deram match!");
+					toast.success("Oba!! Vocês deram match!");
 				}
 				return setMatchProfile(request.data);
 			})

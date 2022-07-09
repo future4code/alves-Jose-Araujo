@@ -51,7 +51,7 @@ export default function App() {
 
 	return (
 		<>
-			<ToastContainer autoClose={3000} />
+			<ToastContainer autoClose={2000} />
 			<GlobalStyle />
 			<ContainerAstroMatch>{chooseScreen()}</ContainerAstroMatch>
 		</>
