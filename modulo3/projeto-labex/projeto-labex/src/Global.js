@@ -23,8 +23,12 @@ body {
 }
 
 button {
-  cursor: pointer;
   color: var(--txt-primary-color);
   border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
 }
 `;
