@@ -1,55 +1,68 @@
 import styled from "styled-components";
 
-// TODO: Arrumar o bug com o scroll quando colocamos em mobile, centralizar o texto "Lista de Viagens" e colocar funcionalidade para os buttons.
-
 export const ContainerTripsList = styled.section`
 	width: 100%;
-	height: 100vh;
 
 	display: flex;
-	align-items: center;
-
-	justify-content: center;
 	flex-direction: column;
 
-	button {
-		width: 150px;
-		height: 40px;
+	align-items: center;
+	justify-content: center;
 
-		font-weight: 400;
-		border-radius: 5px;
-		margin: 10px;
+	header {
+		width: 100%;
+		height: 150px;
 
-		background-color: var(--btn-primary-color);
-		transition: all 0.2s;
+		display: flex;
+		align-items: center;
 
-		:hover {
-			background-color: transparent;
-			border: 1px solid var(--btn-secondary-color);
+		justify-content: space-around;
+
+		h1 {
+			font-size: 2rem;
+		}
+
+		button {
+			width: 140px;
+			height: 40px;
+
+			font-weight: 400;
+			border-radius: 50px;
+
+			margin: 10px;
+			background-color: var(--btn-primary-color);
+			transition: all 200ms;
+
+			:hover {
+				background-color: var(--btn-secondary-color);
+				transform: scale(1.05);
+			}
 		}
 	}
-`;
 
-export const Trips = styled.ul`
-	display: flex;
-	gap: 20px;
+	ul {
+		width: 100%;
+		display: flex;
 
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-`;
+		align-items: center;
+		justify-content: center;
 
-export const TripsCard = styled.li`
-	padding: 20px;
-	border-radius: 5px;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin: 15px 0;
 
-	transition: all 0.2s;
-	background-color: var(--btn-primary-color);
-	border: 1px solid var(--btn-secondary-color);
+		li {
+			width: 800px;
+			padding: 20px;
+			border-radius: 5px;
 
-	:hover {
-		background-color: transparent;
-		cursor: pointer;
-		border: 1px solid var(--btn-secondary-color);
+			background-color: var(--btn-primary-color);
+			transition: background-color 0.2s;
+
+			:hover {
+				background-color: var(--btn-secondary-color);
+				cursor: pointer;
+			}
+		}
 	}
 `;

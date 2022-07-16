@@ -1,8 +1,8 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import { goToTripsList } from "../../routes/Coordinator";
-import { ButtonAdmin, ButtonTrips, ContainerHome } from "./Style";
+import { goToLogin, goToTripsList } from "../../routes/Coordinator";
+import { ContainerHome } from "./Style";
 
 export default function Home() {
 	const navigate = useNavigate();
@@ -10,12 +10,13 @@ export default function Home() {
 	return (
 		<ContainerHome>
 			<h1>LabeX</h1>
-
 			<div>
-				<ButtonTrips onClick={() => goToTripsList(navigate)}>
+				<button onClick={() => goToTripsList(navigate)}>
 					Ver Viagens
-				</ButtonTrips>
-				<ButtonAdmin>Área de Admin</ButtonAdmin>
+				</button>
+				<button onClick={() => goToLogin(navigate)}>
+					Área de Admin
+				</button>
 			</div>
 		</ContainerHome>
 	);

@@ -1,89 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import { goToHome, goToApplication } from "../../routes/Coordinator";
-import { ContainerTripsList, Trips, TripsCard } from "./Style";
+import { ContainerTripsList } from "./Style";
+import { BASE_URL } from "../.././constants/BASE_URL";
 
 export default function TripsList() {
+	const [tripsList, setTripsList] = useState([]);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		axios
+			.get(`${BASE_URL}/trips`)
+			.then((response) => {
+				setTripsList(response.data.trips);
+			})
+			.catch((error) => {
+				console.log(error.response);
+			});
+	}, []);
 
 	return (
 		<ContainerTripsList>
 			<header>
-				<button onClick={() => goToHome(navigate)}>Voltar</button>
-				<button onClick={() => goToApplication(navigate)}>
-					Inscrever-se
-				</button>
 				<h1>Lista de Viagens</h1>
+
+				<div>
+					<button onClick={() => goToHome(navigate)}>Voltar</button>
+					<button onClick={() => goToApplication(navigate)}>
+						Inscrever-se
+					</button>
+				</div>
 			</header>
 
-			<Trips>
-				<TripsCard>
-					<b>Nome: Tim Maia</b>
-					<p>
-						Descrição: Viagem ao planeta do homem mais poderoso do
-						mundo, Son Goku!
-					</p>
-					<p>Planeta: Son Goku</p>
-					<p>Duração: 100</p>
-					<p>Data: 2024-12-31</p>
-				</TripsCard>
-
-				<TripsCard>
-					<p>Nome: Tim Maia</p>
-					<p>
-						Descrição: Viagem ao planeta do homem mais poderoso do
-						mundo, Son Goku!
-					</p>
-					<p>Planeta: Son Goku</p>
-					<p>Duração: 100</p>
-					<p>Data: 2024-12-31</p>
-				</TripsCard>
-
-				<TripsCard>
-					<p>Nome: Tim Maia</p>
-					<p>
-						Descrição: Viagem ao planeta do homem mais poderoso do
-						mundo, Son Goku!
-					</p>
-					<p>Planeta: Son Goku</p>
-					<p>Duração: 100</p>
-					<p>Data: 2024-12-31</p>
-				</TripsCard>
-
-				<TripsCard>
-					<p>Nome: Tim Maia</p>
-					<p>
-						Descrição: Viagem ao planeta do homem mais poderoso do
-						mundo, Son Goku!
-					</p>
-					<p>Planeta: Son Goku</p>
-					<p>Duração: 100</p>
-					<p>Data: 2024-12-31</p>
-				</TripsCard>
-
-				<TripsCard>
-					<p>Nome: Tim Maia</p>
-					<p>
-						Descrição: Viagem ao planeta do homem mais poderoso do
-						mundo, Son Goku!
-					</p>
-					<p>Planeta: Son Goku</p>
-					<p>Duração: 100</p>
-					<p>Data: 2024-12-31</p>
-				</TripsCard>
-
-				<TripsCard>
-					<p>Nome: Tim Maia</p>
-					<p>
-						Descrição: Viagem ao planeta do homem mais poderoso do
-						mundo, Son Goku!
-					</p>
-					<p>Planeta: Son Goku</p>
-					<p>Duração: 100</p>
-					<p>Data: 2024-12-31</p>
-				</TripsCard>
-			</Trips>
+			{tripsList?.map((trip) => {
+				console.log(trip);
+				return (
+					<div key={trip.id}>
+						<ul>
+							<li>
+								<b>Nome: {trip.name}</b>
+								<p>Descrição: {trip.description}</p>
+								<p>Planeta: {trip.planet}</p>
+								<p>Duração: {trip.durationInDays}</p>
+								<p>Data: {trip.date}</p>
+							</li>
+						</ul>
+					</div>
+				);
+			})}
 		</ContainerTripsList>
 	);
 }

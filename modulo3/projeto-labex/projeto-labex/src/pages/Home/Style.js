@@ -5,41 +5,29 @@ export const ContainerHome = styled.section`
 	height: 100vh;
 
 	display: flex;
-	justify-content: center;
-
-	align-items: center;
 	flex-direction: column;
 
+	align-items: center;
+	justify-content: center;
+
 	h1 {
-		font-size: 50px;
+		font-size: 3rem;
 	}
 
 	button {
-		width: 150px;
+		width: 140px;
 		height: 40px;
 
 		font-weight: 400;
-		border-radius: 5px;
+		border-radius: 50px;
+
 		margin: 10px;
-	}
-`;
+		background-color: var(--btn-primary-color);
+		transition: all 200ms;
 
-export const ButtonTrips = styled.button`
-	background-color: var(--btn-primary-color);
-	transition: all 0.2s;
-
-	:hover {
-		background-color: transparent;
-		border: 1px solid var(--btn-secondary-color);
-	}
-`;
-
-export const ButtonAdmin = styled.button`
-	background-color: var(--btn-primary-color);
-	transition: all 0.2s;
-
-	:hover {
-		background-color: transparent;
-		border: 1px solid var(--btn-secondary-color);
+		:hover {
+			background-color: var(--btn-secondary-color);
+			transform: scale(1.05);
+		}
 	}
 `;
