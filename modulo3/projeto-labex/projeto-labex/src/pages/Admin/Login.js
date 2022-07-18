@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
-import { goBack } from "../../routes/Coordinator";
+import { goToHome } from "../../routes/Coordinator";
 import { BASE_URL } from "../.././constants/BASE_URL";
 
 const ContainerLogin = styled.div`
@@ -18,7 +18,7 @@ const ContainerLogin = styled.div`
 	justify-content: center;
 	gap: 20px;
 
-	section {
+	form {
 		width: 350px;
 		height: auto;
 
@@ -82,7 +82,8 @@ export default function Login() {
 			: navigate("/admin/trips/list");
 	}, [navigate]);
 
-	const onSubmitLogin = () => {
+	const onSubmitLogin = (e) => {
+		e.preventDefault();
 		const body = {
 			email: email,
 			password: password,
@@ -105,25 +106,27 @@ export default function Login() {
 				<h1>Página de Login</h1>
 			</header>
 
-			<section>
+			<form onSubmit={onSubmitLogin}>
 				<input
 					onChange={handleInputEmail}
 					value={email}
-					type={"email"}
+					type="email"
+					required
 					placeholder="Digite o seu e-mail"
 				/>
 				<input
 					onChange={handleInputPassword}
 					value={password}
 					type={"password"}
+					required
 					placeholder="Digite a sua senha"
 				/>
 
 				<div>
-					<button onClick={() => goBack(navigate)}>Voltar</button>
-					<button onClick={onSubmitLogin}>Entrar</button>
+					<button onClick={() => goToHome(navigate)}>Voltar</button>
+					<button>Entrar</button>
 				</div>
-			</section>
+			</form>
 		</ContainerLogin>
 	);
 }

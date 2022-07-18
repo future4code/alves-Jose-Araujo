@@ -53,6 +53,11 @@ export default function AdminPage() {
 			});
 	};
 
+	const logoutAdmin = () => {
+		localStorage.removeItem("token");
+		navigate("/login");
+	};
+
 	return (
 		<ContainerAdminList>
 			<header>
@@ -62,7 +67,7 @@ export default function AdminPage() {
 					<button onClick={() => goToAdminCreate(navigate)}>
 						Criar Viagem
 					</button>
-					<button>Logout</button>
+					<button onClick={logoutAdmin}>Logout</button>
 				</div>
 			</header>
 

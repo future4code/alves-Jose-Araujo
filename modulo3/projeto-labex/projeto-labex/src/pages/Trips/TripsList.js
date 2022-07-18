@@ -35,7 +35,6 @@ export default function TripsList() {
 			</header>
 
 			{tripsList?.map((trip) => {
-				console.log(trip);
 				return (
 					<div key={trip.id}>
 						<ul>

@@ -66,3 +66,47 @@ export const ContainerTripsList = styled.section`
 		}
 	}
 `;
+
+export const ContainerRegisterUser = styled.div`
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	align-items: center;
+
+	justify-content: center;
+	flex-direction: column;
+
+	input,
+	select {
+		width: 400px;
+		display: flex;
+		flex-direction: column;
+
+		padding: 12px;
+		margin: 10px;
+
+		background-color: var(--txt-primary-color);
+		border: none;
+		border-radius: 5px;
+
+		outline-color: var(--btn-secondary-color);
+	}
+
+	button {
+		width: 140px;
+		height: 40px;
+
+		font-weight: 400;
+		border-radius: 50px;
+
+		margin: 10px;
+		background-color: var(--btn-primary-color);
+		transition: all 200ms;
+
+		:hover {
+			background-color: var(--btn-secondary-color);
+			transform: scale(1.05);
+		}
+	}
+`;

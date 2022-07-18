@@ -1,52 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import styled from "styled-components";
 import { BASE_URL } from "../.././constants/BASE_URL";
+import { ContainerRegisterUser } from "./Style";
 
-const ContainerRegisterUser = styled.div`
-	width: 100%;
-	height: 100vh;
-
-	display: flex;
-	align-items: center;
-
-	justify-content: center;
-	flex-direction: column;
-
-	input,
-	select {
-		width: 400px;
-		display: flex;
-		flex-direction: column;
-
-		padding: 12px;
-		margin: 10px;
-
-		background-color: var(--txt-primary-color);
-		border: none;
-		border-radius: 5px;
-
-		outline-color: var(--btn-secondary-color);
-	}
-
-	button {
-		width: 140px;
-		height: 40px;
-
-		font-weight: 400;
-		border-radius: 50px;
-
-		margin: 10px;
-		background-color: var(--btn-primary-color);
-		transition: all 200ms;
-
-		:hover {
-			background-color: var(--btn-secondary-color);
-			transform: scale(1.05);
-		}
-	}
-`;
+import { goToTripsList } from "../../routes/Coordinator";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterUser() {
 	const [trips, setTrips] = useState([]);
@@ -57,6 +16,9 @@ export default function RegisterUser() {
 
 	const [job, setJob] = useState("");
 	const [country, setCountry] = useState("");
+
+	const [tripChoice, setTripChoice] = useState("");
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		axios
@@ -89,9 +51,14 @@ export default function RegisterUser() {
 		setCountry(e.target.value);
 	};
 
+	const onChangeTrip = (e) => {
+		setTripChoice(e.target.value);
+	};
+
 	const applyToTrip = (e) => {
 		e.preventDefault();
 
+		const id = tripChoice;
 		const body = {
 			name: name,
 			age: age,
@@ -101,9 +68,10 @@ export default function RegisterUser() {
 		};
 
 		axios
-			.post(`${BASE_URL}/trips/apply`, body)
+			.post(`${BASE_URL}/trips/${id}/apply`, body)
 			.then((response) => {
 				console.log(response);
+				alert("Registro realizado com sucesso!");
 			})
 			.catch((error) => {
 				console.log(error);
@@ -117,10 +85,14 @@ export default function RegisterUser() {
 			</header>
 
 			<form onSubmit={applyToTrip}>
-				<select required>
+				<select onChange={onChangeTrip} required>
 					<option hidden>Escolha uma viagem</option>
 					{trips?.map((trip) => {
-						return <option key={trip.id}>{trip.name}</option>;
+						return (
+							<option key={trip.id} value={trip.id}>
+								{trip.name}
+							</option>
+						);
 					})}
 				</select>
 				<input
@@ -128,34 +100,37 @@ export default function RegisterUser() {
 					placeholder="Nome"
 					onChange={onChangeName}
 					value={name}
+					required
 				/>
 				<input
 					type="number"
 					placeholder="Idade"
 					onChange={onChangeAge}
 					value={age}
+					required
 				/>
 				<input
 					type="text"
 					placeholder="Texto de Candidatura"
 					onChange={onChangeAppText}
 					value={appText}
+					required
 				/>
 				<input
 					type="text"
 					placeholder="Profissão"
 					onChange={onChangeJob}
 					value={job}
+					required
 				/>
 				<select
-					name="paises"
-					id="paises"
+					name="country"
 					value={country}
 					onChange={onChangeCountry}
+					required
 				>
-					<option value="Brasil" selected="selected">
-						Brasil
-					</option>
+					<option hidden>Escolha um país</option>
+					<option value="Brasil">Brasil</option>
 					<option value="Afeganistão">Afeganistão</option>
 					<option value="África do Sul">África do Sul</option>
 					<option value="Albânia">Albânia</option>
@@ -456,7 +431,9 @@ export default function RegisterUser() {
 				</select>
 
 				<div>
-					<button>Voltar</button>
+					<button onClick={() => goToTripsList(navigate)}>
+						Voltar
+					</button>
 					<button>Enviar</button>
 				</div>
 			</form>
