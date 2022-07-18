@@ -4,6 +4,9 @@
   Plataforma de gerenciamento de viagens espaciais.
 </h3>
 
+## 📷 Screenshot
+<img src="https://i.imgur.com/itwS3LH.png" />
+
 ## 💻 Conceitos abordados
 
 - Componentes Funcionais/Hooks
