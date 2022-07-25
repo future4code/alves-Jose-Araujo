@@ -1,8 +1,10 @@
+import Router from "./router/Router";
+
 function App() {
 	return (
-		<div>
-			<h1>Salve!</h1>
-		</div>
+		<>
+			<Router />
+		</>
 	);
 }
 
