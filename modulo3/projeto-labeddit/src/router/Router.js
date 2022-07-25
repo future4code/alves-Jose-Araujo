@@ -4,9 +4,11 @@ import PostListPage from "../pages/PostListPage/PostListPage";
 import PostPage from "../pages/PostPage/PostPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Header from "../components/Header/Header";
 
 const Router = () => (
 	<BrowserRouter>
+		<Header />
 		<Routes>
 			<Route index element={<PostListPage />} />
 			<Route path="/login" element={<LoginPage />} />
