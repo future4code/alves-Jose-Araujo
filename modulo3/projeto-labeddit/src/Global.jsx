@@ -6,6 +6,8 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
 
     box-sizing: border-box;
+    font-family: "IBM Plex Sans", sans-serif;
+
     width: 100%;
     height: 100vh;
   }
