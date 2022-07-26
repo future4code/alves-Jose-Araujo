@@ -2,21 +2,32 @@ import styled from "styled-components";
 import { Button } from "@mui/material";
 
 export const ScreenContainer = styled.div`
-	display: flex;
-	align-items: center;
-
-	flex-direction: column;
 	width: 100%;
-	margin-top: 10vh;
+	min-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+
+	justify-content: center;
+	align-items: center;
 
 	h1,
 	p {
 		margin: 0;
 	}
 
+	h1 {
+		color: #373737;
+	}
+
+	p {
+		margin-bottom: 30px;
+	}
+
 	hr {
-		padding: 1px;
+		padding: 0.5px;
 		border-radius: 24px;
+
 		background-image: linear-gradient(to right, #ff6489, #f9b24e);
 		background-color: rebeccapurple;
 		border: none;
@@ -41,5 +52,4 @@ export const LogoImage = styled.img`
 
 export const StyledButton = styled(Button)`
 	background: linear-gradient(to right, #ff6489, #f9b24e);
-	color: white !important;
 `;

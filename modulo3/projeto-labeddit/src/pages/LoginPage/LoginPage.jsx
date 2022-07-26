@@ -1,8 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { goToSignUpPage } from "../../router/coordinator";
+
 import TextField from "@mui/material/TextField";
-import Logo from "../../assets/logo.svg";
 import Stack from "@mui/material/Stack";
 import { Button } from "@mui/material";
+
+import Logo from "../../assets/logo.svg";
 import {
 	ScreenContainer,
 	InputsContainer,
@@ -11,9 +15,11 @@ import {
 } from "./styled";
 
 const LoginPage = () => {
+	const navigate = useNavigate();
+
 	return (
 		<ScreenContainer>
-			<LogoImage src={Logo} alt={""} />
+			<LogoImage src={Logo} alt={"Logo LabEddit"} />
 			<h1>LabEddit</h1>
 			<p>O projeto de rede social da Labenu</p>
 
@@ -22,14 +28,14 @@ const LoginPage = () => {
 					<TextField
 						label="E-mail"
 						type="email"
-						margin={"normal"}
+						margin={"dense"}
 						fullWidth
 						required
 					/>
 					<TextField
 						label="Senha"
 						type="password"
-						margin={"normal"}
+						margin={"dense"}
 						fullWidth
 						required
 					/>
@@ -37,23 +43,28 @@ const LoginPage = () => {
 
 				<Stack direction="column" spacing={2}>
 					<StyledButton
-						type={"submit"}
+						sx={{
+							borderRadius: 25,
+							height: 51,
+							boxShadow: 0,
+							color: "white",
+						}}
 						fullWidth
-						variant={"contained"}
-						color={"primary"}
 						size={"large"}
-						sx={{ borderRadius: 25 }}
+						variant={"contained"}
+						type={"submit"}
 					>
-						Fazer Login
+						Continuar
 					</StyledButton>
 					<hr />
 					<Button
-						type={"submit"}
+						sx={{ borderRadius: 25, height: 51, boxShadow: 0 }}
 						fullWidth
+						size={"large"}
 						variant={"outlined"}
 						color={"secondary"}
-						size={"large"}
-						sx={{ borderRadius: 25 }}
+						type={"submit"}
+						onClick={() => goToSignUpPage(navigate)}
 					>
 						Crie uma conta!
 					</Button>
