@@ -13,6 +13,14 @@ export const ScreenContainer = styled.div`
 	p {
 		margin: 0;
 	}
+
+	hr {
+		padding: 1px;
+		border-radius: 24px;
+		background-image: linear-gradient(to right, #ff6489, #f9b24e);
+		background-color: rebeccapurple;
+		border: none;
+	}
 `;
 
 export const InputsContainer = styled.div`
