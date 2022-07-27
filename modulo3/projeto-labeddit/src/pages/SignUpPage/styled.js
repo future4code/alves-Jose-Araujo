@@ -13,7 +13,9 @@ export const ScreenContainer = styled.div`
 
 	label,
 	p {
+		font-size: 14px;
 		font-family: "Noto Sans";
+		text-align: justify;
 	}
 
 	h1 {
@@ -26,11 +28,11 @@ export const ScreenContainer = styled.div`
 	}
 
 	.text-register {
-		margin-top: 20px;
-
-		.checkbox {
-			margin: 10px 0;
-		}
+		margin-top: 40px;
+	}
+	.checkbox {
+		display: flex;
+		margin: 10px 0;
 	}
 `;
 
@@ -42,7 +44,7 @@ export const InputsContainer = styled.div`
 	max-width: 450px;
 
 	align-items: center;
-	margin: 20px 0;
+	margin: 15px 0;
 `;
 
 export const LogoImage = styled.img`

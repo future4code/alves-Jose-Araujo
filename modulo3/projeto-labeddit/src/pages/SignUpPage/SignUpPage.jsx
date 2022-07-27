@@ -9,18 +9,36 @@ import {
 	InputsContainer,
 	StyledButton,
 } from "./styled";
+import { useNavigate } from "react-router-dom";
+import useForm from "../../hooks/useForm";
+import { signUp } from "../../services/user";
 
 const SignUpPage = () => {
+	const navigate = useNavigate();
+	const [form, handleInputChange, clear] = useForm({
+		username: "",
+		email: "",
+		password: "",
+	});
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+		signUp(form, clear, navigate);
+	};
+
 	return (
 		<ScreenContainer>
 			<h1>Olá, boas vindas ao LabEddit ;)</h1>
 
-			<form>
+			<form onSubmit={onSubmit}>
 				<InputsContainer>
 					<TextField
 						label="Nome de usuário"
 						type="text"
 						margin={"dense"}
+						name={"username"}
+						value={form.name}
+						onChange={handleInputChange}
 						fullWidth
 						required
 					/>
@@ -28,6 +46,9 @@ const SignUpPage = () => {
 						label="E-mail"
 						type="email"
 						margin={"dense"}
+						name={"email"}
+						value={form.email}
+						onChange={handleInputChange}
 						fullWidth
 						required
 					/>
@@ -35,6 +56,9 @@ const SignUpPage = () => {
 						label="Senha"
 						type="password"
 						margin={"dense"}
+						name={"password"}
+						value={form.password}
+						onChange={handleInputChange}
 						fullWidth
 						required
 					/>
@@ -45,14 +69,14 @@ const SignUpPage = () => {
 							<b>Contrato de usuário </b>e nossa{" "}
 							<b>Política de Privacidade</b>
 						</p>
+					</div>
 
-						<div className="checkbox">
-							<Checkbox />
-							<label>
-								Eu concordo em receber emails sobre coisas legais no
-								Labeddit
-							</label>
-						</div>
+					<div className="checkbox">
+						<Checkbox required />
+						<label>
+							Eu concordo em receber emails sobre coisas legais no
+							Labeddit
+						</label>
 					</div>
 				</InputsContainer>
 

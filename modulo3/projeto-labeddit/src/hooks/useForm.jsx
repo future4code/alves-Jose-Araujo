@@ -5,7 +5,6 @@ const useForm = (initialState) => {
 	const [form, setForm] = useState(initialState);
 	// Função responsável por pegar os inputs.
 	const handleInputChange = (e) => {
-		console.log(e);
 		// Aqui é feito a destructing por pegar o value e name do event.target.
 		const { value, name } = e.target;
 		// Aqui é setado no estado com spread operator.

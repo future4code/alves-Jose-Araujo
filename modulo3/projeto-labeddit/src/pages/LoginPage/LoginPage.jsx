@@ -1,4 +1,6 @@
 import React from "react";
+import useForm from "../../hooks/useForm";
+import { login } from "../../services/user";
 import { useNavigate } from "react-router-dom";
 import { goToSignUpPage } from "../../router/coordinator";
 
@@ -16,6 +18,15 @@ import {
 
 const LoginPage = () => {
 	const navigate = useNavigate();
+	const [form, handleInputChange, clear] = useForm({
+		email: "",
+		password: "",
+	});
+
+	const onSubmitForm = (e) => {
+		e.preventDefault();
+		login(form, clear, navigate);
+	};
 
 	return (
 		<ScreenContainer>
@@ -23,18 +34,24 @@ const LoginPage = () => {
 			<h1>LabEddit</h1>
 			<p>O projeto de rede social da Labenu</p>
 
-			<form>
+			<form onSubmit={onSubmitForm}>
 				<InputsContainer>
 					<TextField
 						label="E-mail"
 						type="email"
 						margin={"dense"}
+						value={form.email}
+						onChange={handleInputChange}
+						name={"email"}
 						fullWidth
 						required
 					/>
 					<TextField
 						label="Senha"
+						name={"password"}
 						type="password"
+						value={form.password}
+						onChange={handleInputChange}
 						margin={"dense"}
 						fullWidth
 						required
