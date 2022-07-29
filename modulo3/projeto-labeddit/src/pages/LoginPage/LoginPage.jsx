@@ -15,6 +15,7 @@ import {
 	LogoImage,
 	StyledButton,
 } from "./styled";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
 const LoginPage = () => {
 	const navigate = useNavigate();
@@ -22,6 +23,8 @@ const LoginPage = () => {
 		email: "",
 		password: "",
 	});
+
+	useUnprotectedPage();
 
 	const onSubmitForm = (e) => {
 		e.preventDefault();
@@ -45,6 +48,7 @@ const LoginPage = () => {
 						name={"email"}
 						fullWidth
 						required
+						autoFocus
 					/>
 					<TextField
 						label="Senha"

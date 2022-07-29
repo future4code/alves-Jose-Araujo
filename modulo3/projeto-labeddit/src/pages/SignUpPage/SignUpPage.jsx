@@ -12,6 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { signUp } from "../../services/user";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
 const SignUpPage = () => {
 	const navigate = useNavigate();
@@ -20,6 +21,8 @@ const SignUpPage = () => {
 		email: "",
 		password: "",
 	});
+
+	useUnprotectedPage();
 
 	const onSubmit = (e) => {
 		e.preventDefault();
@@ -41,6 +44,7 @@ const SignUpPage = () => {
 						onChange={handleInputChange}
 						fullWidth
 						required
+						autoFocus
 					/>
 					<TextField
 						label="E-mail"

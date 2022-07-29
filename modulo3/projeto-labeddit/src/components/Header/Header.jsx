@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { goToLoginPage } from "../../router/coordinator";
 
 import AppBar from "@mui/material/AppBar";
@@ -11,9 +11,23 @@ import { ImageLogo } from "./styled";
 import Logo from "../../assets/logo.svg";
 
 const Header = () => {
+	const token = localStorage.getItem("token");
+	const { pathname } = useLocation();
 	const navigate = useNavigate();
+	let isLogin = false;
 
-	return (
+	if (pathname === "/login") isLogin = true;
+
+	const logoutUser = () => {
+		if (token) {
+			localStorage.removeItem("token");
+		}
+		goToLoginPage(navigate);
+	};
+
+	return isLogin ? (
+		""
+	) : (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="static">
 				<Toolbar>
@@ -24,11 +38,8 @@ const Header = () => {
 					>
 						<ImageLogo src={Logo} alt={""} />
 					</Typography>
-					<Button
-						color="inherit"
-						onClick={() => goToLoginPage(navigate)}
-					>
-						Entrar
+					<Button color="inherit" onClick={logoutUser}>
+						{token ? "Logout" : "Entrar"}
 					</Button>
 				</Toolbar>
 			</AppBar>
