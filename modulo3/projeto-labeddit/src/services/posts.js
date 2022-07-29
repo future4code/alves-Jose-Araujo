@@ -16,3 +16,17 @@ export const CreatePost = (body, clear) => {
 			console.log(error);
 		});
 };
+
+export const CreateComment = (body, id, clear) => {
+	axios
+		.post(`${BASE_URL}/posts/${id}/comments`, body, {
+			headers: { Authorization: localStorage.getItem("token") },
+		})
+		.then((response) => {
+			alert(response.data);
+			clear();
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};

@@ -1,5 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { goToLoginPage } from "../../router/coordinator";
+import {
+	goToLoginPage,
+	goToPostListPage,
+} from "../../router/coordinator";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -16,7 +19,7 @@ const Header = () => {
 	const navigate = useNavigate();
 	let isLogin = false;
 
-	if (pathname === "/login") isLogin = true;
+	if (pathname === "/" || pathname === "/#") isLogin = true;
 
 	const logoutUser = () => {
 		if (token) {
@@ -36,7 +39,11 @@ const Header = () => {
 						component="div"
 						sx={{ flexGrow: 1 }}
 					>
-						<ImageLogo src={Logo} alt={""} />
+						<ImageLogo
+							src={Logo}
+							alt={""}
+							onClick={() => goToPostListPage(navigate)}
+						/>
 					</Typography>
 					<Button color="inherit" onClick={logoutUser}>
 						{token ? "Logout" : "Entrar"}

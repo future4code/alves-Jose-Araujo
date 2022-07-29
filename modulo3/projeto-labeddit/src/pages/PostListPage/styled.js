@@ -31,7 +31,7 @@ export const ScreenContainer = styled.div`
 		.CardMessage {
 			border: 1px solid #ececec;
 			border-radius: 10px;
-			width: 50px;
+			width: 40px;
 			height: 28px;
 			display: flex;
 			align-items: center;

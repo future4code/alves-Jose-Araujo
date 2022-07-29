@@ -1,28 +1,24 @@
 import React from "react";
-
 import { TextField } from "@mui/material";
 import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 
-import ArrowUp from "../../assets/arrow-up.svg";
-import ArrowDown from "../../assets/arrow-down.svg";
-import ChatBallon from "../../assets/chat-ballon.svg";
 import {
 	ScreenContainer,
 	InputsContainer,
 	StyledButton,
 } from "./styled";
+
 import UseRequestData from "../../hooks/useRequestData";
 import Loading from "../../components/Loading/Loading";
 import useForm from "../../hooks/useForm";
 import { CreatePost } from "../../services/posts";
+import CardList from "../../components/Card/CardList";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const PostListPage = () => {
-	const [data, loading] = UseRequestData();
+	useProtectedPage();
+	const [data, loading] = UseRequestData([], "/posts");
+
 	const [form, handleInputChange, clear] = useForm({
 		title: "",
 		body: "",
@@ -33,48 +29,8 @@ const PostListPage = () => {
 		CreatePost(form, clear);
 	};
 
-	const mappedCard = data?.map((post) => {
-		return (
-			<Box mt={2} width="24rem" key={post.id}>
-				<Card variant="outlined" margin="normal">
-					<CardContent>
-						<Typography
-							sx={{ fontSize: 12 }}
-							variant="h5"
-							color="text.secondary"
-							gutterBottom
-						>
-							Enviado por: {post.username}
-						</Typography>
-
-						<Typography variant="h5" component="div">
-							{post.body}
-						</Typography>
-					</CardContent>
-					<CardActions>
-						<Typography
-							sx={{ fontSize: 12 }}
-							variant="h5"
-							color="text.secondary"
-							gutterBottom
-						>
-							<div className="CardContainer">
-								<div className="CardActions">
-									<img src={ArrowUp} alt={""} />
-									{post.voteSum}
-									<img src={ArrowDown} alt={""} />
-								</div>
-
-								<div className="CardMessage">
-									<img src={ChatBallon} alt={""} />
-									<p>{post.commentCount}</p>
-								</div>
-							</div>
-						</Typography>
-					</CardActions>
-				</Card>
-			</Box>
-		);
+	const mappedCard = data?.map((comment) => {
+		return <CardList key={comment.id} post={comment} />;
 	});
 
 	return (

@@ -1,9 +1,9 @@
-export const goToPostListPage = (navigate) => {
+export const goToLoginPage = (navigate) => {
 	navigate("/");
 };
 
-export const goToLoginPage = (navigate) => {
-	navigate("/login");
+export const goToPostListPage = (navigate) => {
+	navigate("/post");
 };
 
 export const goToSignUpPage = (navigate) => {
