@@ -15,12 +15,13 @@ import UseRequestData from "../../hooks/useRequestData";
 import Loading from "../../components/Loading/Loading";
 import { CreateComment } from "../../services/posts";
 import useForm from "../../hooks/useForm";
+import useRequestComments from "../../hooks/useRequestComments";
 
 const PostPage = () => {
 	useProtectedPage();
 	const { id } = useParams();
-	const [data, loading] = UseRequestData([], `/posts/${id}/comments`);
-
+	const [data, loading] = UseRequestData([], "/posts");
+	const [comments] = useRequestComments(id);
 	const [form, handleInputChange, clear] = useForm({
 		body: "",
 	});
@@ -30,12 +31,21 @@ const PostPage = () => {
 		CreateComment(form, id, clear);
 	};
 
-	const mappedComments = data.map((post) => {
+	const mappedPosts = data.map((post) => {
+		return post.id === id ? (
+			<CardList key={post.id} post={post} />
+		) : (
+			""
+		);
+	});
+
+	const mappedComments = comments.map((post) => {
 		return <CardList key={post.id} post={post} />;
 	});
 
 	return (
 		<ScreenContainer>
+			{mappedPosts}
 			<form onSubmit={onSubmitComment}>
 				<InputsContainer>
 					<TextField
@@ -49,6 +59,7 @@ const PostPage = () => {
 						fullWidth
 						multiline
 						required
+						autoFocus
 					/>
 				</InputsContainer>
 

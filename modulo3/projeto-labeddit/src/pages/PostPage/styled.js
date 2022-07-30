@@ -3,7 +3,6 @@ import { Button } from "@mui/material";
 
 export const ScreenContainer = styled.div`
 	width: 100%;
-	min-height: 100vh;
 
 	display: flex;
 	flex-direction: column;
@@ -44,7 +43,7 @@ export const InputsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	width: 80vw;
+	width: 93vw;
 	max-width: 450px;
 
 	align-items: center;
