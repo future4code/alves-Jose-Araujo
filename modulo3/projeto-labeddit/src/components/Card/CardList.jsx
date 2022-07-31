@@ -11,14 +11,21 @@ import Typography from "@mui/material/Typography";
 import ArrowUp from "../../assets/arrow-up.svg";
 import ArrowDown from "../../assets/arrow-down.svg";
 import ChatBallon from "../../assets/chat-ballon.svg";
+import styled from "styled-components";
 
-const CardList = ({ post, createPostVote }) => {
+const ContainerCard = styled.div`
+	img {
+		cursor: pointer;
+	}
+`;
+
+const CardList = ({ post, postVoteLike, postVoteDislike }) => {
 	const navigate = useNavigate();
 	const { pathname } = useLocation();
 
 	return (
-		<div>
-			<Box mt={2} width="24rem">
+		<ContainerCard>
+			<Box mt={2} minWidth={"24rem"}>
 				<Card variant="outlined" margin="normal">
 					<CardContent>
 						<Typography
@@ -46,10 +53,14 @@ const CardList = ({ post, createPostVote }) => {
 									<img
 										src={ArrowUp}
 										alt={""}
-										onClick={() => createPostVote(post.id)}
+										onClick={() => postVoteLike(post.id)}
 									/>
 									{post.voteSum}
-									<img src={ArrowDown} alt={""} />
+									<img
+										src={ArrowDown}
+										alt={""}
+										onClick={() => postVoteDislike(post.id)}
+									/>
 								</div>
 
 								{pathname === "/post" ? (
@@ -69,7 +80,7 @@ const CardList = ({ post, createPostVote }) => {
 					</CardActions>
 				</Card>
 			</Box>
-		</div>
+		</ContainerCard>
 	);
 };
 
