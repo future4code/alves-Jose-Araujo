@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import Stack from "@mui/material/Stack";
 
@@ -14,15 +14,34 @@ import useForm from "../../hooks/useForm";
 import { CreatePost } from "../../services/posts";
 import CardList from "../../components/Card/CardList";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import axios from "axios";
+import { BASE_URL } from "../../constants/url";
 
 const PostListPage = () => {
 	useProtectedPage();
 	const [data, loading] = UseRequestData([], "/posts");
-
+	const [like, setLike] = useState(false);
 	const [form, handleInputChange, clear] = useForm({
 		title: "",
 		body: "",
 	});
+
+	const createPostVote = (id) => {
+		const body = {
+			direction: 1,
+		};
+
+		axios
+			.post(`${BASE_URL}/posts/${id}/votes`, body, {
+				headers: { Authorization: localStorage.getItem("token") },
+			})
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 
 	const onSubmitPost = (e) => {
 		e.preventDefault();
@@ -30,7 +49,13 @@ const PostListPage = () => {
 	};
 
 	const mappedCard = data?.map((comment) => {
-		return <CardList key={comment.id} post={comment} />;
+		return (
+			<CardList
+				key={comment.id}
+				post={comment}
+				createPostVote={createPostVote}
+			/>
+		);
 	});
 
 	return (

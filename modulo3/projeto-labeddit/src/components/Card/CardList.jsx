@@ -12,7 +12,7 @@ import ArrowUp from "../../assets/arrow-up.svg";
 import ArrowDown from "../../assets/arrow-down.svg";
 import ChatBallon from "../../assets/chat-ballon.svg";
 
-const CardList = ({ post }) => {
+const CardList = ({ post, createPostVote }) => {
 	const navigate = useNavigate();
 	const { pathname } = useLocation();
 
@@ -43,7 +43,11 @@ const CardList = ({ post }) => {
 						>
 							<div className="CardContainer">
 								<div className="CardActions">
-									<img src={ArrowUp} alt={""} />
+									<img
+										src={ArrowUp}
+										alt={""}
+										onClick={() => createPostVote(post.id)}
+									/>
 									{post.voteSum}
 									<img src={ArrowDown} alt={""} />
 								</div>
