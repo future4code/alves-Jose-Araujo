@@ -1,2 +1,2 @@
 // Exercício 5
-// Configurações extras para o projeto, dependendo da necessidade do uso.
+// Muitas configurações quando comparada com as passadas durante a aula, creio que vai depender do uso especifico para um projeto.
