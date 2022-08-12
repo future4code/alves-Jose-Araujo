@@ -1,0 +1,15 @@
+{
+  "name": "lista-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "startEx1": "tsc && node ./build/Exercicio1.js",
+    "startEx2": "tsc && node ./build/Exercicio2.js",
+    "startEx3": "tsc && node ./build/Exercicio3.js",
+    "startEx4": "tsc && node ./build/Exercicio4.js"
+  },
+  "keywords": [],
+  "author": "José Carlos",
+  "license": "ISC"
+}
