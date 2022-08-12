@@ -7,7 +7,8 @@
     "startEx1": "tsc && node ./build/Exercicio1.js",
     "startEx2": "tsc && node ./build/Exercicio2.js",
     "startEx3": "tsc && node ./build/Exercicio3.js",
-    "startEx4": "tsc && node ./build/Exercicio4.js"
+    "startEx4": "tsc && node ./build/Exercicio4.js",
+    "startEx5": "tsc && node ./build/Exercicio5.js"
   },
   "keywords": [],
   "author": "José Carlos",
