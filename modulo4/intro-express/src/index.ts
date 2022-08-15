@@ -28,3 +28,13 @@ app.get("/users", (req: Request, res: Response) => {
 app.get("/posts", (req: Request, res: Response) => {
 	res.send(posts);
 });
+
+app.get("/posts/:id", (req: Request, res: Response) => {
+	const userId = Number(req.params.id);
+
+	const postFind = posts.filter((post) => {
+		return post.userId === userId;
+	});
+
+	res.send(postFind);
+});
