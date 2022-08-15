@@ -5,7 +5,8 @@ import express, {
 	Response,
 } from "express";
 import cors from "cors";
-import { users } from "./data";
+import { users } from "./users";
+import { posts } from "./posts";
 
 const app = express();
 
@@ -22,4 +23,8 @@ app.get("/", (req: Request, res: Response) => {
 
 app.get("/users", (req: Request, res: Response) => {
 	res.send(users);
+});
+
+app.get("/posts", (req: Request, res: Response) => {
+	res.send(posts);
 });
