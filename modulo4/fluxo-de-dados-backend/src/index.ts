@@ -14,7 +14,7 @@ app.get("/test", (req: Request, res: Response) => {
 	res.send({ message: "Tudo certo com este endpoint." });
 });
 
-app.get("/createProduct", (req: Request, res: Response) => {
+app.post("/createProduct", (req: Request, res: Response) => {
 	const { name, price } = req.body;
 
 	try {
