@@ -44,13 +44,13 @@ app.post("/createProduct", (req: Request, res: Response) => {
 			);
 		}
 
-		const novaPlaylist: Product = {
+		const newProduct: Product = {
 			id: Date.now().toString(),
 			name,
 			price,
 		};
 
-		products.push(novaPlaylist);
+		products.push(newProduct);
 		res.send(products);
 	} catch (error: any) {
 		res
