@@ -158,7 +158,14 @@
       playing_limit_date = "2022-08-31"
     ```
 
-- C) Delete algum dos filmes, mas guarde o id. Tente fazer uma query para atualizar a sinopse desse filme que você acabou de deletar (usando o mesmo id). Anote o resultado e explique.
+  - ```sql
+    UPDATE Movie
+    WHERE id = "002"
+    SET
+    playing_limit_date = "2021-05-10"
+    ```
+
+- D) Delete algum dos filmes, mas guarde o id. Tente fazer uma query para atualizar a sinopse desse filme que você acabou de deletar (usando o mesmo id). Anote o resultado e explique.
 
   - É retornado uma mensagem de sucesso.
 
