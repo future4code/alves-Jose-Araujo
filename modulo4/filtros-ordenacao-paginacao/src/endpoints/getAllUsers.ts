@@ -144,7 +144,7 @@ export const getAllUsersFull = async (
 		}
 
 		const size: number = 5; // Número de usuários por página
-		const offset: number = size * (page - 1);
+		const offset: number = size * (page - 1); // o offset serve para pular o que não queremos mostrar, vai pular a quantidade de itens que deu de resultado nele.
 
 		const result = await connection("aula49_exercicio")
 			.where("name", "LIKE", `%${studentName}%`)
