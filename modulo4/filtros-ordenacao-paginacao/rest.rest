@@ -1,0 +1,7 @@
+GET http://localhost:3003/getAllUsersOrder
+#####
+GET http://localhost:3003/getAllUsersPage
+#####
+GET http://localhost:3003/getAllUsers
+#####
+GET http://localhost:3003/getAllUsersByType
