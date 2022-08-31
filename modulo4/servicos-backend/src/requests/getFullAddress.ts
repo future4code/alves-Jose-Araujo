@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../data/connection";
-import { filterAddress } from "../types";
+import { filterAddress } from "../types/types";
 
 export const getFullAddress = async (cep: string) => {
 	try {

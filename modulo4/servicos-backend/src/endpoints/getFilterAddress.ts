@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { BASE_URL, connection } from "../data/connection";
 import { getFullAddress } from "../requests/getFullAddress";
-import { filterAddress } from "../types";
+import { filterAddress } from "../types/types";
 
 export default async function getFilterAddress(
 	req: Request,

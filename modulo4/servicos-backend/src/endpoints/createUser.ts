@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { connection } from "../data/connection";
 import { getFullAddress } from "../requests/getFullAddress";
-import { user } from "../types";
+import { user } from "../types/types";
 
 export default async function createUser(
 	req: Request,
