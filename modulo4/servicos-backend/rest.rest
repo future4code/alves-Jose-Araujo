@@ -1,0 +1,12 @@
+GET http://localhost:3003/address/52111040
+###
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Tim Maia",
+    "nickname": "timmaia",
+    "email": "timmaia.com",
+    "cep": "52111040",
+    "numero": "150"
+} 
