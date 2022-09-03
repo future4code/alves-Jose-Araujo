@@ -1,24 +1,24 @@
 import { Request, Response } from "express";
 import { connection } from "../data/connection";
-import { user } from "../types";
+import { product } from "../types";
 
-export default async function createUser(
+export default async function createProduct(
 	req: Request,
 	res: Response
 ): Promise<void> {
 	try {
-		const { name, email, password } = req.body;
+		const { name, price, image_url } = req.body;
 
-		if (!name || !email || !password) {
+		if (!name || !price || !image_url) {
 			res.statusCode = 422;
-			throw "'name', 'email' e 'password' são obrigatórios";
+			throw "'name', 'price' e 'image_url' são obrigatórios";
 		}
 
 		const id: string = Date.now().toString();
-		const newUser: user = { id, name, email, password };
+		const newUser: product = { id, name, price, image_url };
 
-		await connection("labecommerce_users").insert(newUser);
-		res.status(201).send("Usuário criado!");
+		await connection("labecommerce_products").insert(newUser);
+		res.status(201).send("Produto criado!");
 	} catch (error: any) {
 		if (typeof error === "string") {
 			res.send(error);

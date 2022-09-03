@@ -1,8 +1,7 @@
 {
    "scripts": {
       "start": "tsc && node --inspect ./build/index.js",
-      "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
-      "migrations": "tsnd ./src/data/migrations.ts"
+      "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts"
    },
    "dependencies": {
       "cors": "^2.8.5",
