@@ -20,6 +20,14 @@ class UserAccount {
 		this.name = name;
 		this.age = age;
 	}
+
+	public getTransactions(): Transaction[] {
+		return this.transactions;
+	}
+
+	public setTransactions(newTransaction: Transaction): void {
+		this.transactions.push(newTransaction);
+	}
 }
 
 const newUserAccount: UserAccount = new UserAccount(
@@ -77,7 +85,9 @@ const newTransaction: Transaction = new Transaction(
 	"31/07/2022"
 );
 
-console.log(newTransaction.getDescription());
+newUserAccount.setTransactions(newTransaction);
+
+console.log(newUserAccount, newUserAccount.getTransactions());
 
 ///////////////////////////////////////////////////
 /// Exercício 3 ///////////////////////////////////
