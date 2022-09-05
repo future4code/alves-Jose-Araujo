@@ -87,7 +87,8 @@ const newTransaction: Transaction = new Transaction(
 
 newUserAccount.setTransactions(newTransaction);
 
-console.log(newUserAccount, newUserAccount.getTransactions());
+console.table(newUserAccount);
+console.table(newUserAccount.getTransactions());
 
 ///////////////////////////////////////////////////
 /// Exercício 3 ///////////////////////////////////
