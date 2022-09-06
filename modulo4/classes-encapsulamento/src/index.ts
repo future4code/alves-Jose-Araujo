@@ -36,6 +36,12 @@ const newUserAccount: UserAccount = new UserAccount(
 	32
 );
 
+const newUserAccount2: UserAccount = new UserAccount(
+	"127.0.0.1",
+	"Carlos",
+	34
+);
+
 // A) Responsável por criar o objeto em memória, ou seja, instanciar a classe que foi definida.
 // B) A mensagem: "Chamando o construtor da classe UserAccount" é impressa apenas uma vez.
 // C) Fazendo uso dos getters.
@@ -105,6 +111,6 @@ class Bank {
 	}
 }
 
-const newBankAccount: Bank = new Bank([newUserAccount]);
+const newBankAccount: Bank = new Bank([newUserAccount2]);
 
 console.log(newBankAccount.getAccounts());
