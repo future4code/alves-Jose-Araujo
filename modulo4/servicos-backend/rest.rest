@@ -1,0 +1,12 @@
+GET http://localhost:3003/address/51111050
+###
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Zezinho",
+    "nickname": "zezinho",
+    "email": "zezinhodobrega@dev.com",
+    "cep": "51111050",
+    "numero": "22"
+} 
