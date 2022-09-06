@@ -106,7 +106,7 @@ class Bank {
 		this.accounts = accounts;
 	}
 
-	public getAccounts() {
+	public getAccounts(): UserAccount[] {
 		return this.accounts;
 	}
 }
