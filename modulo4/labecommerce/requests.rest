@@ -1,0 +1,38 @@
+### Get All Users
+GET http://localhost:3003/users
+
+### Create New User
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+  "name": "Leonardo Oliveira",
+  "email": "leonardo@gmail.com",
+  "password": "1234leonardo"
+}
+
+### Get All Products
+GET http://localhost:3003/products
+
+### Create New Product
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+  "name": "Macbook",
+  "price": 1200,
+  "image_url": "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+}
+
+### Get Purchase User
+GET http://localhost:3003/users/1662213761381/purchases
+
+### Create New Purchase
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+  "user_id": "1662213761381",
+  "product_id": "1662215288436",
+  "quantity": 9
+}
