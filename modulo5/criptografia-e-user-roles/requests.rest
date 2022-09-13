@@ -1,0 +1,22 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "email": "brennx@gmail.com",
+   "password": "123456",
+   "role": "NORMAL"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "brennx@gmail.com",
+   "password": "123456"
+}
+
+###
+
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU5NGZkMjBmLWE4YTUtNDI5Mi1hODE4LWI3MWFhMjkzNzUwMCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjMwOTUyODcsImV4cCI6MTY2MzA5NTM0N30.XBH6MkNDeAO_S2qQ01oml5pmzNRqDq3V4RftZn0Vuh4
