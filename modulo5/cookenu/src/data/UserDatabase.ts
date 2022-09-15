@@ -22,4 +22,22 @@ export class UserDatabase extends BaseDatabase {
 
 		return result[0];
 	};
+
+	public getUserById = async (id: string) => {
+		const result: IUserDB[] = await this.getConnection()
+			.select("id", "name", "email")
+			.from("cookenu_users")
+			.where({ id });
+
+		return result[0];
+	};
+
+	public getUser = async (id: string) => {
+		const result: IUserDB[] = await this.getConnection()
+			.select("id", "name", "email")
+			.from("cookenu_users")
+			.where({ id });
+
+		return result[0];
+	};
 }

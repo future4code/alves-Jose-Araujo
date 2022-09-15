@@ -16,3 +16,11 @@ Content-Type: application/json
   "email": "alice@lbn.com",
   "password": "123456"
 }
+
+####
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3YjBiYWM0LWVlNTctNGE1MS04OTU4LTdhMjQyMTkzNDY0MyIsImlhdCI6MTY2MzI2Mjk0OCwiZXhwIjoxNjYzMjYzMDA4fQ.NTmimuWZ0yL77uU5yBRVkBWRMQNTx8zx_H_EnxJF6wQ
+
+####
+GET http://localhost:3003/user/07b0bac4-ee57-4a51-8958-7a2421934643
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3YjBiYWM0LWVlNTctNGE1MS04OTU4LTdhMjQyMTkzNDY0MyIsImlhdCI6MTY2MzI2NDMwNSwiZXhwIjoxNjYzMjY0MzY1fQ.ucJyJCwzgdDLfQahyFHl-SpyoF_sUjpNCCe16CyXq2E

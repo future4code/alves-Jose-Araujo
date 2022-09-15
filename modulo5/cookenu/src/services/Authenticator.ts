@@ -3,10 +3,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export class Authenticator {
-	generateToken = (payload: string) => {
+	generateToken = (id: string) => {
 		const token = jwt.sign(
 			{
-				payload,
+				id,
 			},
 			process.env.JWT_KEY as string,
 			{
