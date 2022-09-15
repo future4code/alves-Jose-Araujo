@@ -48,4 +48,32 @@ export class UserEndpoint {
 				.send({ message: error.message });
 		}
 	};
+
+	public login = async (req: Request, res: Response) => {
+		const { email, password } = req.body;
+
+		if (!email || !password) {
+			throw new Error("Todos campos precisam ser preenchidos.");
+		}
+
+		const userData = new UserDatabase();
+		const userDB = await userData.getUserByEmail(email);
+
+		if (!userDB) {
+			throw new Error("Esse e-mail já está cadastrado");
+		}
+
+		const hashManager = new HashManager();
+		const isPasswordCorrect = await hashManager.compare(
+			password,
+			userDB.password
+		);
+
+		if (!isPasswordCorrect) {
+			throw new Error("Senha incorreta!");
+		}
+
+		const token = new Authenticator().generateToken(userDB.id);
+		res.status(200).send({ access_token: token });
+	};
 }
