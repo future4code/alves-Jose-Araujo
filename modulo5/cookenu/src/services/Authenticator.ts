@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
-class Authenticator {
+export class Authenticator {
 	generateToken = (payload: string) => {
 		const token = jwt.sign(
 			{
