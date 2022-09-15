@@ -10,4 +10,5 @@ app.get("/user/profile", user.getMyProfile);
 app.post("/signup", user.createUser);
 app.post("/login", user.login);
 
+app.get("/recipe/:id", recipe.getRecipe);
 app.post("/recipe", recipe.createRecipe);

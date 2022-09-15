@@ -15,4 +15,13 @@ export class RecipeDatabase extends BaseDatabase {
 			.insert(recipeDB)
 			.into("cookenu_recipes");
 	};
+
+	public getRecipeById = async (id: string) => {
+		const result: IRecipeDB[] = await this.getConnection()
+			.select("*")
+			.from("cookenu_recipes")
+			.where({ id });
+
+		return result[0];
+	};
 }
