@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
+import moment from "moment";
 import { RecipeDatabase } from "../data/RecipeDatabase";
 import { Recipe } from "../model/Recipe";
 import { Authenticator } from "../services/Authenticator";
 import { GenerateId } from "../services/GenerateId";
-import { DateTime } from "luxon";
 
 export class RecipeEndpoint {
 	public createRecipe = async (req: Request, res: Response) => {
@@ -29,9 +29,7 @@ export class RecipeEndpoint {
 			const generateId = new GenerateId();
 			const id = generateId.createId();
 
-			const createdAt = DateTime.now()
-				.setLocale("en-us")
-				.toFormat("yyyy-MM-dd");
+			const createdAt = new Date();
 			const recipe = new Recipe(id, title, description, createdAt);
 			await new RecipeDatabase().createRecipe(recipe);
 
@@ -68,9 +66,9 @@ export class RecipeEndpoint {
 				id: getRecipe.id,
 				title: getRecipe.title,
 				description: getRecipe.description,
-				createdAt: DateTime.now()
-					.setLocale("pt-br")
-					.toFormat("dd/MM/yyyy"),
+				createdAt: moment
+					.utc(getRecipe.createdAt)
+					.format("DD/MM/YYYY"),
 			});
 		} catch (error: any) {
 			res

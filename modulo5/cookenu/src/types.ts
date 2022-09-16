@@ -9,5 +9,5 @@ export interface IRecipeDB {
 	id: string;
 	title: string;
 	description: string;
-	createdAt: string;
+	createdAt: Date;
 }

@@ -28,7 +28,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3YjBiYWM0LWVlNTct
 ####
 POST http://localhost:3003/recipe
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3YjBiYWM0LWVlNTctNGE1MS04OTU4LTdhMjQyMTkzNDY0MyIsImlhdCI6MTY2MzM0Mzg3OCwiZXhwIjoxNjYzMzQzOTM4fQ.EQkYwz9dyf8a9ESHUaq79pWDMaUU9QIuiEVPQlL4mgU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3YjBiYWM0LWVlNTctNGE1MS04OTU4LTdhMjQyMTkzNDY0MyIsImlhdCI6MTY2MzM0NDY3NCwiZXhwIjoxNjYzMzQ0NzM0fQ.sSSMAhbPNKSqAVK2-5--tVvDfIA3HW-wRjYf4GupiYw
 
 {
   "title": "Teste Moment",
