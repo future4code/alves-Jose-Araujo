@@ -13,7 +13,25 @@ export class UserController {
 			const userBusiness = new UserBusiness();
 			const result = await userBusiness.signup(input);
 
-			res.status(201).send(result);
+			res.status(200).send(result);
+		} catch (error: any) {
+			res
+				.status(error.statusCode || 500)
+				.send({ message: error.message });
+		}
+	};
+
+	public login = async (req: Request, res: Response) => {
+		try {
+			const input: any = {
+				email: req.body.email,
+				password: req.body.password,
+			};
+
+			const userBusiness = new UserBusiness();
+			const result = await userBusiness.login(input);
+
+			res.status(200).send(result);
 		} catch (error: any) {
 			res
 				.status(error.statusCode || 500)

@@ -39,9 +39,9 @@ export class UserBusiness {
 		}
 
 		const userDataBase = new UserDatabase();
-		const userDB = await userDataBase.getUserByEmail(email);
+		const emailExist = await userDataBase.getUserByEmail(email);
 
-		if (userDB) {
+		if (emailExist) {
 			throw new Error("Esse e-mail já está cadastrado.");
 		}
 
@@ -65,6 +65,65 @@ export class UserBusiness {
 
 		const result = {
 			message: "Cadastro realizado com sucesso!",
+			token,
+		};
+
+		return result;
+	};
+
+	public login = async (input: any) => {
+		const email = input.email;
+		const password = input.password;
+
+		if (!email || !password) {
+			throw new Error("Você precisa preencher todos campos.");
+		}
+
+		if (typeof email !== "string") {
+			throw new Error("O campo 'email' está inválido!");
+		}
+
+		if (typeof password !== "string") {
+			throw new Error("O campo 'password' está inválido!");
+		}
+
+		if (password.length < 6) {
+			throw new Error(
+				"'password' deve possuir ao menos 6 caracteres."
+			);
+		}
+
+		if (email.indexOf("@") === -1) {
+			throw new Error("O e-mail inserido não é válido!");
+		}
+
+		const userDataBase = new UserDatabase();
+		const userDB = await userDataBase.getUserByEmail(email);
+
+		if (!userDB) {
+			throw new Error("Não existe um cadastro com esse e-mail.");
+		}
+
+		const hashManager = new HashManager();
+		const isPasswordCorrect = await hashManager.compare(
+			password,
+			userDB.password
+		);
+
+		if (!isPasswordCorrect) {
+			throw new Error("Senha incorreta!");
+		}
+
+		const payload: ITokenPayload = {
+			id: userDB.id,
+			role: userDB.role,
+		};
+
+		const authenticator = new Authenticator();
+		const token = authenticator.generateToken(payload);
+
+		const result = {
+			message: "Usuário logado com sucesso!",
 			token,
 		};
 
