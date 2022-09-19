@@ -27,4 +27,20 @@ export class UserDatabase extends BaseDatabase {
 
 		return userEmail[0];
 	};
+
+	public getUserById = async (id: string) => {
+		const userId = await BaseDatabase.connection(
+			UserDatabase.TABLE_USERS
+		)
+			.select("*")
+			.where({ id });
+
+		return userId[0];
+	};
+
+	public deleteUserById = async (id: string) => {
+		await BaseDatabase.connection(UserDatabase.TABLE_USERS)
+			.delete()
+			.where({ id });
+	};
 }

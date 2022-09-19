@@ -1,5 +1,5 @@
 import { UserDatabase } from "../database/UserDatabase";
-import { User } from "../models/User";
+import { User, USER_ROLES } from "../models/User";
 import {
 	Authenticator,
 	ITokenPayload,
@@ -125,6 +125,44 @@ export class UserBusiness {
 		const result = {
 			message: "Usuário logado com sucesso!",
 			token,
+		};
+
+		return result;
+	};
+
+	public delete = async (token: string, id: string) => {
+		if (!token) {
+			throw new Error("Você não está autorizado!");
+		}
+
+		if (!id) {
+			throw new Error("Precisa informar o ID para deletar.");
+		}
+
+		const userDatabase = new UserDatabase();
+		const userDB = await userDatabase.getUserById(id);
+
+		if (!userDB) {
+			throw new Error("ID não encontrado!");
+		}
+
+		const payload = new Authenticator().getTokenPayload(token);
+
+		if (payload.role === USER_ROLES.NORMAL) {
+			throw new Error(
+				"Apenas usuários com o cargo de 'ADMIN' podem realizar está ação."
+			);
+		}
+
+		if (payload.id === id) {
+			throw new Error(
+				"Não é possível deletar a mesma conta que está logado."
+			);
+		}
+
+		await userDatabase.deleteUserById(id);
+		const result = {
+			message: `Usuário(a): ${userDB.name} deletado(a) com sucesso!`,
 		};
 
 		return result;
