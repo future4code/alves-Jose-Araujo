@@ -1,5 +1,5 @@
 import { UserDatabase } from "../database/UserDatabase";
-import { User, USER_ROLES } from "../models/User";
+import { ISignupInputDTO, User, USER_ROLES } from "../models/User";
 import {
 	Authenticator,
 	ITokenPayload,
@@ -15,7 +15,7 @@ export class UserBusiness {
 		private authenticator: Authenticator
 	) {}
 
-	public signup = async (input: any) => {
+	public signup = async (input: ISignupInputDTO) => {
 		const name = input.name;
 		const email = input.email;
 		const password = input.password;
