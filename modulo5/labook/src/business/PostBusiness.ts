@@ -1,5 +1,6 @@
 import { PostDatabase } from "../database/PostDatabase";
 import { ICreatePostDTO, Post } from "../models/Post";
+import { USER_ROLES } from "../models/User";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 
@@ -62,6 +63,42 @@ export class PostBusiness {
 		}
 
 		const result = { posts };
+		return result;
+	};
+
+	public deletePost = async (input: any) => {
+		const token = input.token;
+		const id = input.id;
+
+		if (!token || !id) {
+			throw new Error("Você não está autorizado!");
+		}
+
+		const payload = this.authenticator.getTokenPayload(token);
+		if (!payload) {
+			throw new Error("O seu token não é válido!");
+		}
+
+		const postDB = await this.postDatabase.getPostById(id);
+		if (!postDB) {
+			throw new Error("O ID do post inserido, não foi encontrado!");
+		}
+
+		if (
+			payload.role === USER_ROLES.NORMAL &&
+			payload.id !== postDB.user_id
+		) {
+			throw new Error(
+				"Você não tem autorização para deletar este post!"
+			);
+		}
+
+		await this.postDatabase.deletePostById(id);
+
+		const result = {
+			message: `Post com o ID: '${id}' deletado com sucesso!`,
+		};
+
 		return result;
 	};
 }

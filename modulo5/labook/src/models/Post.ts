@@ -15,6 +15,11 @@ export interface ICreatePostDTO {
 	content: string;
 }
 
+export interface IDeletePostDTO {
+	token: string;
+	id: string;
+}
+
 export class Post {
 	constructor(
 		private id: string,
