@@ -7,13 +7,23 @@ export class PostController {
 
 	public createPost = async (req: Request, res: Response) => {
 		try {
-			console.log(req.body.content);
 			const input: ICreatePostDTO = {
 				token: req.headers.authorization as string,
 				content: req.body.content,
 			};
 
 			const result = await this.postBusiness.createPost(input);
+			res.status(201).send(result);
+		} catch (error: any) {
+			res.status(400).send({ message: error.message });
+		}
+	};
+
+	public getAllPosts = async (req: Request, res: Response) => {
+		try {
+			const token: any = req.headers.authorization;
+
+			const result = await this.postBusiness.getAllPosts(token);
 			res.status(201).send(result);
 		} catch (error: any) {
 			res.status(400).send({ message: error.message });

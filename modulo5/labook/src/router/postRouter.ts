@@ -15,4 +15,6 @@ const postController = new PostController(
 	)
 );
 
+postRouter.get("/all", postController.getAllPosts);
+
 postRouter.post("/create", postController.createPost);

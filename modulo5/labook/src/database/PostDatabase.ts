@@ -32,4 +32,12 @@ export class PostDatabase extends BaseDatabase {
 
 		return result[0];
 	};
+
+	public getAllPosts = async () => {
+		const result: IPostDB[] = await BaseDatabase.connection(
+			PostDatabase.TABLE_POSTS
+		).select("*");
+
+		return result;
+	};
 }

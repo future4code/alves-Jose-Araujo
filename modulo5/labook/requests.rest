@@ -28,3 +28,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5YjUxNDVlLWFkZGYt
 {
     "content": "beltrano1@gmail.com"
 }
+
+### 3) Get All Posts
+GET http://localhost:3003/posts/all
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5YjUxNDVlLWFkZGYtNGM0Yi1iZTQ5LTY4ZDU1ZWVkYTQ5YyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjM5NTY3ODQsImV4cCI6MTY2NDA0MzE4NH0.qClPeiYcqreeWKznZrPrUB6hpLVpcr4wACH-eZm6bl4

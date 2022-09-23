@@ -43,4 +43,25 @@ export class PostBusiness {
 
 		return result;
 	};
+
+	public getAllPosts = async (token: string) => {
+		if (!token) {
+			throw new Error(
+				"Você não está autorizado, é necessário fazer o login!"
+			);
+		}
+
+		const payload = this.authenticator.getTokenPayload(token);
+		if (!payload) {
+			throw new Error("O seu token é inválido!");
+		}
+
+		const posts = await this.postDatabase.getAllPosts();
+		if (!posts.length) {
+			throw new Error("Nenhum post foi encontrado!");
+		}
+
+		const result = { posts };
+		return result;
+	};
 }
