@@ -57,4 +57,18 @@ export class PostController {
 			res.status(400).send({ message: error.message });
 		}
 	};
+
+	public dislike = async (req: Request, res: Response) => {
+		try {
+			const input: any = {
+				token: req.headers.authorization as string,
+				post_id: req.params.id,
+			};
+
+			const result = await this.postBusiness.dislike(input);
+			res.status(201).send(result);
+		} catch (error: any) {
+			res.status(400).send({ message: error.message });
+		}
+	};
 }

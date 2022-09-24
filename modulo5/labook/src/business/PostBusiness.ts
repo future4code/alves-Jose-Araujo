@@ -141,4 +141,37 @@ export class PostBusiness {
 
 		return result;
 	};
+
+	public dislike = async (input: any) => {
+		const { token, post_id } = input;
+
+		if (!token) {
+			throw new Error("Não autorizado!");
+		}
+
+		const payload = this.authenticator.getTokenPayload(token);
+		if (!payload) {
+			throw new Error("Token inválido!");
+		}
+
+		const postExist = await this.postDatabase.getPostById(post_id);
+		if (!postExist) {
+			throw new Error("O ID do post inserido não foi encontrado!");
+		}
+
+		const likeExist = await this.postDatabase.getLikePost(
+			payload.id,
+			post_id
+		);
+		if (!likeExist?.length) {
+			throw new Error("Você não deu like nessa postagem!");
+		}
+
+		await this.postDatabase.dislike(payload.id, post_id);
+		const result = {
+			message: "Você deu dislike nessa postagem!",
+		};
+
+		return result;
+	};
 }

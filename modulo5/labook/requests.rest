@@ -40,3 +40,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5YjUxNDVlLWFkZGYt
 POST http://localhost:3003/posts/like/202
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5YjUxNDVlLWFkZGYtNGM0Yi1iZTQ5LTY4ZDU1ZWVkYTQ5YyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDAzMzA3MCwiZXhwIjoxNjY0MTE5NDcwfQ.bXXvRknPcTIO23_zewEIMrgI99i1Jg0Yz6Cc8O3-WlU
+
+### 7) Dislike Post
+POST http://localhost:3003/posts/dislike/201
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5YjUxNDVlLWFkZGYtNGM0Yi1iZTQ5LTY4ZDU1ZWVkYTQ5YyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDAzMzA3MCwiZXhwIjoxNjY0MTE5NDcwfQ.bXXvRknPcTIO23_zewEIMrgI99i1Jg0Yz6Cc8O3-WlU
