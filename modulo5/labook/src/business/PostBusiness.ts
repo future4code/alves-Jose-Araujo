@@ -1,5 +1,5 @@
 import { PostDatabase } from "../database/PostDatabase";
-import { ICreatePostDTO, Post } from "../models/Post";
+import { ICreatePostDTO, ILikeDB, Post } from "../models/Post";
 import { USER_ROLES } from "../models/User";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
@@ -29,7 +29,7 @@ export class PostBusiness {
 		}
 
 		const userDB = await this.postDatabase.getUserById(payload.id);
-		if (!userDB.id.length) {
+		if (!userDB) {
 			throw new Error("O ID não foi encontrado!");
 		}
 
@@ -97,6 +97,46 @@ export class PostBusiness {
 
 		const result = {
 			message: `Post com o ID: '${id}' deletado com sucesso!`,
+		};
+
+		return result;
+	};
+
+	public like = async (input: any) => {
+		const { token, post_id } = input;
+
+		if (!token) {
+			throw new Error("Não autorizado!");
+		}
+
+		const payload = this.authenticator.getTokenPayload(token);
+		if (!payload) {
+			throw new Error("Token inválido!");
+		}
+
+		const postExist = await this.postDatabase.getPostById(post_id);
+		if (!postExist) {
+			throw new Error("O ID do post inserido não foi encontrado!");
+		}
+
+		const likeExist = await this.postDatabase.getLikePost(
+			payload.id,
+			post_id
+		);
+		if (likeExist?.length) {
+			throw new Error("Você já deu like nessa postagem!");
+		}
+
+		const id = this.idGenerator.generate();
+		const like: ILikeDB = {
+			id,
+			post_id,
+			user_id: payload.id,
+		};
+
+		await this.postDatabase.like(like);
+		const result = {
+			message: "Você curtiu a postagem!",
 		};
 
 		return result;

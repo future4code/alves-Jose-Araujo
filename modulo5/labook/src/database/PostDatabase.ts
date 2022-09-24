@@ -1,4 +1,4 @@
-import { IPostDB, Post } from "../models/Post";
+import { ILikeDB, IPostDB, Post } from "../models/Post";
 import { IUserDB } from "../models/User";
 import { BaseDatabase } from "./BaseDatabase";
 
@@ -55,5 +55,29 @@ export class PostDatabase extends BaseDatabase {
 		await BaseDatabase.connection(PostDatabase.TABLE_POSTS)
 			.delete()
 			.where({ id });
+	};
+
+	public like = async (like: ILikeDB) => {
+		await BaseDatabase.connection(PostDatabase.TABLE_LIKES).insert(
+			like
+		);
+	};
+
+	public dislike = async (user_id: string, post_id: string) => {
+		await BaseDatabase.connection(PostDatabase.TABLE_LIKES)
+			.delete()
+			.where({ post_id })
+			.andWhere({ user_id });
+	};
+
+	public getLikePost = async (user_id: string, post_id: string) => {
+		const postLike: ILikeDB[] = await BaseDatabase.connection(
+			PostDatabase.TABLE_LIKES
+		)
+			.select("*")
+			.where({ post_id })
+			.andWhere({ user_id });
+
+		return postLike;
 	};
 }

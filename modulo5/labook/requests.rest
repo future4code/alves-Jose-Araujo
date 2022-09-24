@@ -35,3 +35,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5YjUxNDVlLWFkZGYt
 DELETE http://localhost:3003/posts/delete/515e1132-6ab0-4a0d-a040-6bc60b95428b
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5YjUxNDVlLWFkZGYtNGM0Yi1iZTQ5LTY4ZDU1ZWVkYTQ5YyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjM5NTY3ODQsImV4cCI6MTY2NDA0MzE4NH0.qClPeiYcqreeWKznZrPrUB6hpLVpcr4wACH-eZm6bl4
+
+### 6) Like Post
+POST http://localhost:3003/posts/like/202
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5YjUxNDVlLWFkZGYtNGM0Yi1iZTQ5LTY4ZDU1ZWVkYTQ5YyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDAzMzA3MCwiZXhwIjoxNjY0MTE5NDcwfQ.bXXvRknPcTIO23_zewEIMrgI99i1Jg0Yz6Cc8O3-WlU
