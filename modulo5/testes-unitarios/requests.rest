@@ -6,9 +6,9 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "name": "alice",
-    "email": "alice@gmail.com",
-    "password": "alice99"
+    "name": "Astrodev",
+    "email": "astrodev@gmail.com",
+    "password": "bananinha"
 }
 
 ### 2) Login
