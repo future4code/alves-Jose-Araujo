@@ -2,15 +2,13 @@ export interface IShowDB {
 	id: string;
 	band: string;
 	starts_at: Date;
-	tickets: number;
 }
 
 export class Show {
 	constructor(
 		private id: string,
 		private band: string,
-		private starts_at: Date,
-		private tickets: number
+		private starts_at: Date
 	) {}
 
 	public getId = () => {
@@ -25,10 +23,6 @@ export class Show {
 		return this.starts_at;
 	};
 
-	public getTickets = () => {
-		return this.tickets;
-	};
-
 	public setId = (newId: string) => {
 		this.id = newId;
 	};
@@ -40,8 +34,10 @@ export class Show {
 	public setStartsAt = (newStartsAt: Date) => {
 		this.starts_at = newStartsAt;
 	};
+}
 
-	public setTickets = (newTicket: number) => {
-		this.tickets = newTicket;
-	};
+export interface ICreateShowInputDTO {
+	token: string;
+	band: string;
+	starts_at: string;
 }
