@@ -27,5 +27,5 @@ Content-Type: application/json
 
 {
   "band": "Show22 Teste",
-  "starts_at": "23/12/2022"
+  "starts_at": "01/12/2022"
 }

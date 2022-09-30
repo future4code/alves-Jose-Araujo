@@ -59,11 +59,7 @@ export class ShowBusiness {
 		}
 
 		const id = this.idGenerator.generate();
-		const show = new Show(
-			id,
-			band,
-			new Date(starts_at.split("/").reverse().join("/"))
-		);
+		const show = new Show(id, band, startsAtFormated);
 
 		await this.showDatabase.createShow(show);
 		const response = {
