@@ -68,4 +68,14 @@ export class ShowBusiness {
 
 		return response;
 	};
+
+	public getShows = async () => {
+		const shows = await this.showDatabase.getShows();
+
+		const response = {
+			shows: shows,
+		};
+
+		return response;
+	};
 }

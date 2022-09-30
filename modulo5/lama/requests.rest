@@ -29,3 +29,7 @@ Content-Type: application/json
   "band": "Show22 Teste",
   "starts_at": "01/12/2022"
 }
+
+### Get All Shows
+GET http://localhost:3003/shows/allShows
+Content-Type: application/json
