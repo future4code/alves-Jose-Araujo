@@ -1,3 +1,4 @@
+import moment from "moment";
 import { ShowDatabase } from "../database/ShowDatabase";
 import { AuthorizationError } from "../errors/AuthorizationError";
 import { ConflictError } from "../errors/ConflictError";
@@ -72,8 +73,16 @@ export class ShowBusiness {
 	public getShows = async () => {
 		const shows = await this.showDatabase.getShows();
 
+		const showsMapped = shows?.map((show) => {
+			return {
+				id: show.id,
+				band: show.band,
+				starts_at: moment(show.starts_at).format("DD/MM/YYYY"),
+			};
+		});
+
 		const response = {
-			shows: shows,
+			shows: showsMapped,
 		};
 
 		return response;
