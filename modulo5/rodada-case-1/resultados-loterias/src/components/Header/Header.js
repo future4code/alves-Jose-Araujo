@@ -3,32 +3,37 @@ import LogoMegaSena from "../../images/logo_mega_sena.svg";
 
 import * as s from "./Style";
 
-export function Header() {
+export function Header({ setLoteria, loteria, concursos }) {
 	return (
 		<s.MainContainer>
 			<s.ItemsContainer>
 				<s.Select>
-					<form action="/">
-						<select name="cars" id="cars">
-							<option value="volvo">MEGA-SENA</option>
-							<option value="saab">QUINA</option>
-							<option value="opel">LOTOFACIL</option>
-							<option value="audi">LOTOMANIA</option>
-							<option value="audi">TIMEMANIA</option>
-							<option value="audi">DIA DE SORTE</option>
-						</select>
-					</form>
+					<select onChange={(e) => setLoteria(e.target.value)}>
+						<option value="mega-sena">MEGA-SENA</option>
+						<option value="quina">QUINA</option>
+						<option value="lotofácil">LOTOFÁCIL</option>
+						<option value="lotomania">LOTOMANIA</option>
+						<option value="timemania">TIMEMANIA</option>
+						<option value="dia de sorte">DIA DE SORTE</option>
+					</select>
 				</s.Select>
 
 				<s.HeaderLogo>
-					<img src={LogoMegaSena} alt="" />
-					<h3>MEGA-SENA</h3>
+					<img src={LogoMegaSena} alt="Logo" />
+					<h3>{loteria.toUpperCase()}</h3>
 				</s.HeaderLogo>
 
 				<s.Footer>
 					<div>
 						<p>CONCURSO</p>
-						<h4>4531 - 07/04/2022</h4>
+						<h4>
+							{concursos.id} -{" "}
+							{concursos?.data
+								?.substr(0, 10)
+								.split("-")
+								.reverse()
+								.join("/")}
+						</h4>
 					</div>
 				</s.Footer>
 			</s.ItemsContainer>

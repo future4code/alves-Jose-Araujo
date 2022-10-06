@@ -6,34 +6,18 @@ import {
 	MainContainer,
 } from "./Style";
 
-export function ResultBall() {
+export function ResultBall({ concursos }) {
+	const teste = concursos?.numeros?.map((n) => {
+		return (
+			<Ball key={n}>
+				<p>{n}</p>
+			</Ball>
+		);
+	});
+
 	return (
 		<MainContainer>
-			<BallContainer>
-				<Ball>
-					<p>06</p>
-				</Ball>
-
-				<Ball>
-					<p>09</p>
-				</Ball>
-
-				<Ball>
-					<p>28</p>
-				</Ball>
-
-				<Ball>
-					<p>33</p>
-				</Ball>
-
-				<Ball>
-					<p>37</p>
-				</Ball>
-
-				<Ball>
-					<p>40</p>
-				</Ball>
-			</BallContainer>
+			<BallContainer>{teste}</BallContainer>
 
 			<FooterContainer>
 				<p>

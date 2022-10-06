@@ -14,9 +14,10 @@ export const BallContainer = styled.div`
 
 	display: flex;
 	flex-direction: row;
-
 	justify-content: center;
+
 	align-items: center;
+	flex-wrap: wrap;
 `;
 
 export const Ball = styled.div`

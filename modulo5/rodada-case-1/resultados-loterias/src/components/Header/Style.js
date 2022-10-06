@@ -13,6 +13,11 @@ export const MainContainer = styled.div`
 	justify-content: space-around;
 
 	background: url(${sidebar}) no-repeat;
+
+	@media (max-width: 990px) {
+		width: 100%;
+		height: 50vh;
+	}
 `;
 
 export const ItemsContainer = styled.div`
