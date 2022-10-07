@@ -3,21 +3,19 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
 	width: 100%;
 	display: flex;
-
 	flex-direction: column;
+
+	justify-content: center;
 	align-items: center;
 `;
 
 export const BallContainer = styled.div`
-	width: 100%;
-	gap: 35px;
-
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 
 	align-items: center;
 	flex-wrap: wrap;
+	gap: 30px;
 `;
 
 export const Ball = styled.div`

@@ -7,7 +7,7 @@ import {
 } from "./Style";
 
 export function ResultBall({ concursos }) {
-	const teste = concursos?.numeros?.map((n) => {
+	const resultBall = concursos?.numeros?.map((n) => {
 		return (
 			<Ball key={n}>
 				<p>{n}</p>
@@ -17,7 +17,7 @@ export function ResultBall({ concursos }) {
 
 	return (
 		<MainContainer>
-			<BallContainer>{teste}</BallContainer>
+			<BallContainer>{resultBall}</BallContainer>
 
 			<FooterContainer>
 				<p>

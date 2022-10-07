@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import sidebar from "../../images/sidebar.svg";
 
 export const MainContainer = styled.div`
 	/* Sidebar */
@@ -11,12 +10,35 @@ export const MainContainer = styled.div`
 
 	align-items: center;
 	justify-content: space-around;
+	position: relative;
 
-	background: url(${sidebar}) no-repeat;
+	svg {
+		height: 100vh;
+		position: absolute;
+		left: -10%;
+		right: 0%;
+		top: 0%;
+		bottom: 0%;
+		fill: #6befa3;
 
-	@media (max-width: 990px) {
-		width: 100%;
-		height: 50vh;
+		fill: ${({ loteria }) => {
+			switch (loteria) {
+				case "mega-sena":
+					return "#6BEFA3;";
+				case "quina":
+					return "#8666EF;";
+				case "lotofácil":
+					return "#DD7AC6;";
+				case "lotomania":
+					return "#FFAB64;";
+				case "timemania":
+					return "#5AAD7D;";
+				case "dia de sorte":
+					return "#BFAF83;";
+				default:
+					break;
+			}
+		}};
 	}
 `;
 
@@ -30,6 +52,8 @@ export const ItemsContainer = styled.div`
 	align-items: flex-start;
 	justify-content: space-around;
 	margin-left: 35%;
+
+	z-index: 1;
 `;
 
 export const Select = styled.div`
