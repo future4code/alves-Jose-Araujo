@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
 	background-color: #00b8e2;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
 	height: 100%;
 	gap: 20px;
 
@@ -34,5 +34,12 @@ export const Form = styled.div`
 		border: 2px solid white;
 		border-radius: 4px;
 		background-color: transparent;
+
+		transition: all 0.2s;
+
+		:hover {
+			background-color: white;
+			color: black;
+		}
 	}
 `;

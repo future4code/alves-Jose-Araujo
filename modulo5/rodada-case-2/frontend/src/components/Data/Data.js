@@ -1,22 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DataContainer, DataLogo, TableContainer } from "./Style";
 import { Chart } from "react-google-charts";
-
-export const data = [
-	["Task", "Hours per Day"],
-	["Work", 11],
-	["Eat", 2],
-	["Commute", 2],
-	["Watch TV", 2],
-	["Sleep", 7],
-];
-
-export const options = {
-	pieHole: 0.4,
-	is3D: false,
-};
+import axios from "axios";
+import { BASE_URL } from "../../constants/BASE_URL";
 
 export function Data() {
+	const [participations, setParticipations] = useState([]);
+
+	useEffect(() => {
+		axios
+			.get(`${BASE_URL}/getAllUsers`)
+			.then((res) => {
+				setParticipations(res.data);
+			})
+			.catch((err) => {
+				console.log(err.response);
+			});
+	}, [setParticipations]);
+
+	const data = [["", ""]];
+	const options = {
+		pieHole: 0.5,
+		is3D: false,
+	};
+
+	participations.forEach((participant) => {
+		return data.push([
+			`${participant.firstName} ${participant.lastName}`,
+			+participant.participation,
+		]);
+	});
+
+	const getParticipations = participations?.map((participation) => {
+		const position = participations.indexOf(participation) + 1;
+
+		return (
+			<tr key={participation.id}>
+				<td>{position}</td>
+				<td>{participation.firstName}</td>
+				<td>{participation.lastName}</td>
+				<td>{participation.participation}%</td>
+			</tr>
+		);
+	});
+
 	return (
 		<DataContainer>
 			<DataLogo>
@@ -24,43 +51,27 @@ export function Data() {
 				<p>Lorem Ipsum is simply dummy text of the printing.</p>
 			</DataLogo>
 			<TableContainer>
-				<table>
-					<tr>
-						<th></th>
-						<th scope="col">First name</th>
-						<th scope="col">Last name</th>
-						<th scope="col">Participation</th>
-					</tr>
+				{getParticipations.length ? (
+					<table>
+						<tr>
+							<th></th>
+							<th scope="col">First name</th>
+							<th scope="col">Last name</th>
+							<th scope="col">Participation</th>
+						</tr>
 
-					<tr>
-						<td>1</td>
-						<td>Carlos</td>
-						<td>Moura</td>
-						<td>5%</td>
-					</tr>
-
-					<tr>
-						<td>2</td>
-						<td>Fernanda</td>
-						<td>Oliveira</td>
-						<td>15%</td>
-					</tr>
-
-					<tr>
-						<td>3</td>
-						<td>Hugo</td>
-						<td>Silva</td>
-						<td>30%</td>
-					</tr>
-				</table>
+						{getParticipations}
+					</table>
+				) : (
+					<h1>No data found!</h1>
+				)}
 
 				<Chart
 					chartType="PieChart"
 					data={data}
 					options={options}
 					width={"600px"}
-					height={"350px"}
-					background-color={"red"}
+					height={"400px"}
 				/>
 			</TableContainer>
 		</DataContainer>
